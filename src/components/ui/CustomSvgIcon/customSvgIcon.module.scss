@@ -1,0 +1,84 @@
+.container {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--icon-background);
+    border-radius: 50%;
+    border: 1px solid var(--border-color-1);
+    box-sizing: content-box;
+}
+.container.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.container.active {
+    border: 1px solid var(--logo-color);
+}
+
+.container:hover {
+    cursor: pointer;
+    border: 1px solid var(--logo-color);
+    .fill-path {
+        path {
+            fill: var(--logo-color);
+        }
+    }
+    .stroke-path {
+        path {
+            stroke: var(--logo-color);
+        }
+    }
+}
+.main-icon {
+    width: 18px;
+    height: 18px;
+}
+.youtube-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.youtube-icon:hover {
+    .stroke-path {
+        path {
+            stroke: var(--logo-color);
+        }
+    }
+}
+
+.container.drag {
+    background: transparent;
+    border: none;
+}
+.main-icon.drag {
+    width: 32px;
+    height: 32px;
+    cursor: move;
+    cursor: -webkit-grab;
+}
+
+.container.size24 {
+    width: 25px;
+    height: 25px;
+
+    .main-icon {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+.close-button {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    cursor: pointer !important;
+    z-index: 3;
+    color: var(--text-color-5) !important;
+}
+.close-button:hover {
+    .close-icon {
+        color: red;
+    }
+}

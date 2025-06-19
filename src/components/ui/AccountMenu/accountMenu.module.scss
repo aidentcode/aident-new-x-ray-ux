@@ -1,0 +1,19 @@
+.item-list {
+    margin-left: 8px;
+    font-weight: 300;
+}
+.icon {
+    width: 24px;
+    color: var(--purple);
+    margin-right: 0;
+}
+.menu-item {
+    width: 100%;
+    padding: 0 !important;
+}
+.menu-item-link {
+    width: 100%;
+    padding: 8px 16px !important;
+    display: flex;
+    align-items: center;
+}

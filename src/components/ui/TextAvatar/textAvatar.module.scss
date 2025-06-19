@@ -1,0 +1,26 @@
+.container {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    background: var(--border-color-1);
+    padding: 5px;
+    color: var(--text-color-1);
+    box-sizing: border-box;
+    margin: 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid var(--border-color-1);
+}
+.container:hover {
+    color: var(--logo-color);
+    border: 1px solid var(--logo-color);
+}
+.container.active {
+    color: white;
+    // background: var(--purple);
+    background: var(--gold);
+}

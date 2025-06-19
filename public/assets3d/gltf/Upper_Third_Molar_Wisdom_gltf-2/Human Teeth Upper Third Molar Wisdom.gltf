@@ -1,0 +1,275 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "TurboSquid Stem Converter v1.0.0"
+  },
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 756,
+      "type": "VEC3",
+      "max": [
+        0.982109010219574,
+        1.001263976097107,
+        4.362695217132568
+      ],
+      "min": [
+        -0.9787300229072571,
+        -0.9972450137138367,
+        0.002179000061005354
+      ]
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 756,
+      "type": "VEC3",
+      "max": [
+        0.9980568289756775,
+        0.9998036026954651,
+        0.9999127984046936
+      ],
+      "min": [
+        -0.999644935131073,
+        -0.9993010759353638,
+        -0.9998095631599426
+      ]
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 756,
+      "type": "VEC2",
+      "max": [
+        0.8309869766235352,
+        0.9776819944381714
+      ],
+      "min": [
+        0.1220329999923706,
+        0.021794021129608154
+      ]
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 0,
+      "componentType": 5123,
+      "count": 4050,
+      "type": "SCALAR",
+      "max": [
+        755.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 32292,
+      "uri": "Human Teeth Upper Third Molar Wisdom.bin"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 9072,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 9072,
+      "byteLength": 9072,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 18144,
+      "byteLength": 6048,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 24192,
+      "byteLength": 8100,
+      "target": 34963
+    }
+  ],
+  "materials": [
+    {
+      "name": "teeth_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      },
+      "alphaMode": "OPAQUE",
+      "occlusionTexture": {
+        "index": 1
+      },
+      "normalTexture": {
+        "index": 2
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Human_Teeth_Upper_Third_Molar_Wisdom_Geo",
+      "primitives": [
+        {
+          "mode": 4,
+          "material": 0,
+          "indices": 3,
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          }
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Third_Molar_Wisdom_Group_$_PreRotation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.371138828673793e-08,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        -4.371138828673793e-08,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "children": [
+        2
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Third_Molar_Wisdom_Group_$_GeometricTranslation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        2.1901473999023438,
+        1.0
+      ],
+      "children": [
+        3
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Third_Molar_Wisdom_Group",
+      "children": [
+        4
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Third_Molar_Wisdom_Group_$_GeometricTranslationInverse",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.0,
+        -0.0,
+        -2.1901473999023438,
+        1.0
+      ],
+      "children": [
+        5
+      ]
+    },
+    {
+      "name": "node",
+      "children": [
+        6
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Third_Molar_Wisdom_Geo",
+      "mesh": 0
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "scene": 0,
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/baseColor.jpg"
+    },
+    {
+      "uri": "textures/occlusionRoughnessMetallic.jpg"
+    },
+    {
+      "uri": "textures/normal.png"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

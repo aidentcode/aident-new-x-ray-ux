@@ -1,0 +1,50 @@
+.overviewContainer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 12px 0;
+}
+.formContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+.search-container {
+    margin: 0px 12px 0px 12px !important;
+    background: transparent;
+    border-radius: 4px;
+    width: calc(100% - 24px);
+    user-select: none;
+}
+.form-control-checkbox {
+    min-width: 44px;
+    margin: 0px 12px 0 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.listContainer {
+    overflow-y: auto;
+    height: calc(100% - 48px);
+}
+.listGroupContainer {
+    width: 100%;
+    border-bottom: 1px solid var(--background);
+    text-align: left;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    .listGroupTitle {
+        width: 50%;
+        background-color: var(--background);
+        padding: 4px 12px 2px 12px;
+        border-radius: 0px 32px 0 0;
+        color: var(--text-color-2);
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+.horizontalSeparator {
+    width: 100%;
+    height: 0px;
+    margin-top: 12px;
+}

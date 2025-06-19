@@ -1,0 +1,18 @@
+.split-pane-sash {
+    background-color: var(--border-color-1);
+}
+.vertical {
+    width: 1px;
+    height: 100%;
+    border-left: 1px dashed var(--border-color-1);
+    border-right: 1px dashed var(--border-color-1);
+}
+.horizontal {
+    height: 1px;
+    width: 100%;
+    border-top: 1px solid var(--border-color-3);
+    border-bottom: 1px solid var(--border-color-3);
+}
+.active-sash {
+    border-color: var(--logo-color);
+}

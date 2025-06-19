@@ -1,0 +1,170 @@
+.container1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.main-title {
+    color: var(--text-color-1);
+    text-align: center;
+    margin-bottom: 64px;
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 60%;
+}
+.combo {
+    width: 280px;
+    height: 364px;
+    position: relative;
+    .title {
+        width: 100%;
+        color: var(--text-color-7);
+        font-size: 18px;
+        text-align: center;
+        z-index: 0;
+        position: absolute;
+    }
+    .top {
+        top: 0;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        .title {
+            top: 40%;
+        }
+    }
+    .bottom {
+        bottom: 0;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        .title {
+            top: 40%;
+        }
+    }
+}
+
+.container2 {
+    width: 140px;
+    height: 182px;
+    position: absolute;
+}
+.tooth {
+    position: absolute;
+}
+.tooth:hover {
+    cursor: pointer;
+    path {
+        fill: #ffffffa0;
+        stroke: #ffffff;
+    }
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+.bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: scaleX(-1);
+}
+.top-right {
+    top: 0;
+    right: 0;
+    transform: scaleY(-1);
+}
+.top-left {
+    top: 0;
+    left: 0;
+    transform: scaleY(-1) scaleX(-1);
+}
+
+.molarMarker {
+    position: absolute;
+    bottom: 29%;
+    right: -17%;
+}
+.premolarMarker {
+    position: absolute;
+    bottom: 13%;
+    right: -18%;
+}
+.canineMarker {
+    position: absolute;
+    bottom: 7%;
+    right: -18%;
+}
+.incisorMarker {
+    position: absolute;
+    bottom: -0.5%;
+    right: -18%;
+}
+.molarMarkerText {
+    position: absolute;
+    bottom: 36%;
+    right: -31%;
+    color: var(--text-color-7);
+    font-size: 12px;
+}
+.premolarMarkerText {
+    position: absolute;
+    bottom: 15%;
+    right: -39%;
+    color: var(--text-color-7);
+    font-size: 12px;
+}
+.canineMarkerText {
+    position: absolute;
+    bottom: 5.5%;
+    right: -33%;
+    color: var(--text-color-7);
+    font-size: 12px;
+}
+
+.incisorMarkerText {
+    position: absolute;
+    bottom: -0.5%;
+    right: -34%;
+    color: var(--text-color-7);
+    font-size: 12px;
+}
+
+.tooth-incisor-2 {
+    top: 83%;
+    left: 0%;
+}
+
+.tooth-incisor-1 {
+    left: 16%;
+    top: 76%;
+}
+.tooth-canine-1 {
+    left: 33%;
+    top: 68%;
+}
+
+.tooth-premolar-1 {
+    left: 48%;
+    top: 57%;
+}
+.tooth-premolar-2 {
+    left: 60%;
+    top: 43.5%;
+}
+.tooth-molar-1 {
+    left: 67%;
+    top: 29%;
+}
+.tooth-molar-2 {
+    left: 72%;
+    top: 15%;
+}
+.tooth-molar-3 {
+    left: 74%;
+    top: 0%;
+}

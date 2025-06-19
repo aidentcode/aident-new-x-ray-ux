@@ -1,0 +1,40 @@
+.container {
+    width: 100%;
+    max-width: 320px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--border-color-1);
+    border: 1px solid var(--border-color-1);
+    padding: 0 8px;
+    background: transparent;
+    border-color: transparent;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+.text {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-color-3);
+    line-height: 1;
+}
+.right {
+    display: flex;
+    align-items: center;
+}
+.vertical-divider {
+    width: 0px;
+    padding: 0 2px;
+}
+
+.hidden {
+    opacity: 0.5;
+}
+.disabled {
+    opacity: 0.25;
+    pointer-events: none;
+}

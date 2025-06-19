@@ -1,0 +1,275 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "TurboSquid Stem Converter v1.0.0"
+  },
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 772,
+      "type": "VEC3",
+      "max": [
+        0.8221989870071411,
+        0.7583659887313843,
+        5.280701160430908
+      ],
+      "min": [
+        -0.8221989870071411,
+        -0.7583659887313843,
+        -0.0007009999826550484
+      ]
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 772,
+      "type": "VEC3",
+      "max": [
+        0.9996650815010071,
+        0.9999516010284424,
+        0.8970020413398743
+      ],
+      "min": [
+        -0.9982476830482483,
+        -0.9999971389770508,
+        -0.9953683614730835
+      ]
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 772,
+      "type": "VEC2",
+      "max": [
+        0.8791870474815369,
+        0.9638519883155823
+      ],
+      "min": [
+        0.05274735763669014,
+        0.025070130825042725
+      ]
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 0,
+      "componentType": 5123,
+      "count": 4194,
+      "type": "SCALAR",
+      "max": [
+        771.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 33092,
+      "uri": "Human Teeth Upper Second Premolar.bin"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 9264,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 9264,
+      "byteLength": 9264,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 18528,
+      "byteLength": 6176,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 24704,
+      "byteLength": 8388,
+      "target": 34963
+    }
+  ],
+  "materials": [
+    {
+      "name": "teeth_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      },
+      "alphaMode": "OPAQUE",
+      "occlusionTexture": {
+        "index": 1
+      },
+      "normalTexture": {
+        "index": 2
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Human_Teeth_Upper_Second_Premolar_Geo",
+      "primitives": [
+        {
+          "mode": 4,
+          "material": 0,
+          "indices": 3,
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          }
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Second_Premolar_Group_$_PreRotation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.371138828673793e-08,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        -4.371138828673793e-08,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "children": [
+        2
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Second_Premolar_Group_$_GeometricTranslation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        2.640000104904175,
+        1.0
+      ],
+      "children": [
+        3
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Second_Premolar_Group",
+      "children": [
+        4
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Second_Premolar_Group_$_GeometricTranslationInverse",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.0,
+        -0.0,
+        -2.640000104904175,
+        1.0
+      ],
+      "children": [
+        5
+      ]
+    },
+    {
+      "name": "node",
+      "children": [
+        6
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Second_Premolar_Geo",
+      "mesh": 0
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "scene": 0,
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/baseColor.jpg"
+    },
+    {
+      "uri": "textures/occlusionRoughnessMetallic.jpg"
+    },
+    {
+      "uri": "textures/normal.png"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

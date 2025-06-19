@@ -1,0 +1,16 @@
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    color: var(--logo-color);
+    span {
+        color: var(--logo-color) !important;
+    }
+}
+.msg-container {
+    border: none;
+    outline: none;
+}

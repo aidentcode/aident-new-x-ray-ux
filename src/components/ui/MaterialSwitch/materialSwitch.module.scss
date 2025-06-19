@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    background: var(--border-color-1);
+    border-radius: 24px 24px 0 0;
+}
+.view {
+    margin: 2px 2px;
+    padding: 0px;
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle, var(--border-color-2), transparent);
+    border-radius: 24px;
+    position: relative;
+    cursor: pointer;
+    .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: transparent;
+    }
+}
+.view:hover {
+    border: 1px solid var(--logo-color);
+    border-radius: 32px;
+}
+
+.solid {
+    background: radial-gradient(circle, var(--border-color-2), transparent);
+}
+.wireframe {
+    background: transparent;
+    .icon {
+        color: var(--border-color-2);
+        path {
+            stroke-width: 0.5;
+        }
+    }
+}
+.wireframe.active {
+    .icon {
+        color: var(--logo-color);
+        path {
+            stroke-width: 0.5;
+        }
+    }
+}
+.solid.active {
+    background: radial-gradient(circle, var(--logo-color), transparent);
+}

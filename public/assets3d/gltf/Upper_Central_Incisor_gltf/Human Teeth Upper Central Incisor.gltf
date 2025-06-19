@@ -1,0 +1,293 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "TurboSquid Stem Converter v1.0.0"
+  },
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 355,
+      "type": "VEC3",
+      "max": [
+        1.0184999704360962,
+        0.6218000054359436,
+        5.416800022125244
+      ],
+      "min": [
+        -1.0184999704360962,
+        -0.6218000054359436,
+        0.027000000700354576
+      ]
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 355,
+      "type": "VEC3",
+      "max": [
+        0.9972445368766785,
+        0.9999815821647644,
+        0.9864869713783264
+      ],
+      "min": [
+        -0.9977996349334717,
+        -0.9995919466018677,
+        -0.9248936772346497
+      ]
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 355,
+      "type": "VEC2",
+      "max": [
+        0.5867037177085876,
+        0.988297164440155
+      ],
+      "min": [
+        0.3714686930179596,
+        0.013913989067077637
+      ]
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 0,
+      "componentType": 5123,
+      "count": 1920,
+      "type": "SCALAR",
+      "max": [
+        354.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 15200,
+      "uri": "Human Teeth Upper Central Incisor.bin"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 4260,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 4260,
+      "byteLength": 4260,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 8520,
+      "byteLength": 2840,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 11360,
+      "byteLength": 3840,
+      "target": 34963
+    }
+  ],
+  "materials": [
+    {
+      "name": "teeth_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      },
+      "alphaMode": "BLEND",
+      "occlusionTexture": {
+        "index": 1
+      },
+      "normalTexture": {
+        "index": 2
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "human_teeth_upper_central_incisor_geo",
+      "primitives": [
+        {
+          "mode": 4,
+          "material": 0,
+          "indices": 3,
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          }
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Central_Incisor_Group_$_PreRotation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.371138828673793e-08,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        -4.371138828673793e-08,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "children": [
+        2
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Central_Incisor_Group_$_GeometricTranslation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        9.526734956466498e-11,
+        2.6915624141693115,
+        1.0
+      ],
+      "children": [
+        3
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Central_Incisor_Group",
+      "children": [
+        4
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Central_Incisor_Group_$_GeometricTranslationInverse",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.0,
+        -9.526734956466498e-11,
+        -2.6915624141693115,
+        1.0
+      ],
+      "children": [
+        5
+      ]
+    },
+    {
+      "name": "node",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        9.526734956466498e-11,
+        -0.030337650328874588,
+        1.0
+      ],
+      "children": [
+        6
+      ]
+    },
+    {
+      "name": "human_teeth_upper_central_incisor_geo",
+      "mesh": 0
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "scene": 0,
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/baseColor.png"
+    },
+    {
+      "uri": "textures/occlusionRoughnessMetallic.jpg"
+    },
+    {
+      "uri": "textures/normal.png"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

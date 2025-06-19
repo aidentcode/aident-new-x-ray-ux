@@ -1,0 +1,19 @@
+.button {
+    color: var(--text-color-dark);
+    background: var(--gradient1);
+    border-radius: 40px;
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    height: 40px;
+}
+.button:hover {
+    cursor: pointer;
+}
+
+.button.disabled {
+    background: var(--gradient2);
+    color: var(--text-color-3);
+    pointer-events: none;
+}

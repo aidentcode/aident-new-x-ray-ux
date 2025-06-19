@@ -1,0 +1,30 @@
+.container {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.light-text {
+    color: white;
+}
+.dark-text {
+    color: var(--text-color-dark);
+}
+.inactive {
+    opacity: 0.25;
+}
+
+.videoContainer {
+    width: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 1px;
+}
+.numberContainer {
+    font-size: 12px;
+    font-weight: 600;
+}

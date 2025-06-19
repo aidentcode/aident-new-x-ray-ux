@@ -1,0 +1,299 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "TurboSquid Stem Converter v1.0.0"
+  },
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 590,
+      "type": "VEC3",
+      "max": [
+        1.0180410146713257,
+        0.7488759756088257,
+        6.143771171569824
+      ],
+      "min": [
+        -1.018041968345642,
+        -0.7488759756088257,
+        -0.032384999096393585
+      ]
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 590,
+      "type": "VEC3",
+      "max": [
+        0.9948951601982117,
+        0.9998202919960022,
+        0.9908219575881958
+      ],
+      "min": [
+        -0.9977977275848389,
+        -0.9989804029464722,
+        -0.9550756216049194
+      ]
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 590,
+      "type": "VEC2",
+      "max": [
+        0.5965773463249207,
+        0.9786839485168457
+      ],
+      "min": [
+        0.3889293372631073,
+        0.015166282653808594
+      ]
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 0,
+      "componentType": 5123,
+      "count": 3294,
+      "type": "SCALAR",
+      "max": [
+        589.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 25468,
+      "uri": "Human Teeth Upper Canine.bin"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 7080,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 7080,
+      "byteLength": 7080,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 14160,
+      "byteLength": 4720,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 18880,
+      "byteLength": 6588,
+      "target": 34963
+    }
+  ],
+  "materials": [
+    {
+      "name": "teeth_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      },
+      "alphaMode": "BLEND",
+      "occlusionTexture": {
+        "index": 1
+      },
+      "normalTexture": {
+        "index": 2
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Human_Teeth_Upper_Canine_Geo",
+      "primitives": [
+        {
+          "mode": 4,
+          "material": 0,
+          "indices": 3,
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          }
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Canine_Group_$_Translation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        4.76837158203125e-07,
+        0.03238511085510254,
+        -0.0,
+        1.0
+      ],
+      "children": [
+        2
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Canine_Group_$_PreRotation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.371138828673793e-08,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        -4.371138828673793e-08,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "children": [
+        3
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Canine_Group_$_GeometricTranslation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -4.76837158203125e-07,
+        0.0,
+        3.0556931495666504,
+        1.0
+      ],
+      "children": [
+        4
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Canine_Group",
+      "children": [
+        5
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Canine_Group_$_GeometricTranslationInverse",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        4.76837158203125e-07,
+        -0.0,
+        -3.0556931495666504,
+        1.0
+      ],
+      "children": [
+        6
+      ]
+    },
+    {
+      "name": "node",
+      "children": [
+        7
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_Canine_Geo",
+      "mesh": 0
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "scene": 0,
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/baseColor.png"
+    },
+    {
+      "uri": "textures/occlusionRoughnessMetallic.jpg"
+    },
+    {
+      "uri": "textures/normal.png"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

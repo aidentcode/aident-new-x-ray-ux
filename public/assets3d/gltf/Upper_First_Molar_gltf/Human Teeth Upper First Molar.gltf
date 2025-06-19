@@ -1,0 +1,293 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "TurboSquid Stem Converter v1.0.0"
+  },
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 774,
+      "type": "VEC3",
+      "max": [
+        1.0594689846038818,
+        1.1830040216445923,
+        5.651284217834473
+      ],
+      "min": [
+        -1.3761370182037354,
+        -1.1830040216445923,
+        -0.0019340000580996275
+      ]
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 774,
+      "type": "VEC3",
+      "max": [
+        0.99970543384552,
+        0.9996886849403381,
+        0.9997897148132324
+      ],
+      "min": [
+        -0.9980219006538391,
+        -0.9998475909233093,
+        -0.9997085928916931
+      ]
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 774,
+      "type": "VEC2",
+      "max": [
+        0.7786871790885925,
+        0.9807116985321045
+      ],
+      "min": [
+        0.020984183996915817,
+        0.019422292709350586
+      ]
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 0,
+      "componentType": 5123,
+      "count": 4236,
+      "type": "SCALAR",
+      "max": [
+        773.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 33240,
+      "uri": "Human Teeth Upper First Molar.bin"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 9288,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 9288,
+      "byteLength": 9288,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 18576,
+      "byteLength": 6192,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 24768,
+      "byteLength": 8472,
+      "target": 34963
+    }
+  ],
+  "materials": [
+    {
+      "name": "teeth_material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      },
+      "alphaMode": "OPAQUE",
+      "occlusionTexture": {
+        "index": 1
+      },
+      "normalTexture": {
+        "index": 2
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Human_Teeth_Upper_First_Molar_Geo",
+      "primitives": [
+        {
+          "mode": 4,
+          "material": 0,
+          "indices": 3,
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          }
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_First_Molar_Group_$_PreRotation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.371138828673793e-08,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        -4.371138828673793e-08,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "children": [
+        2
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_First_Molar_Group_$_GeometricTranslation",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.004562079906463623,
+        -0.0002841949462890625,
+        2.8177504539489746,
+        1.0
+      ],
+      "children": [
+        3
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_First_Molar_Group",
+      "children": [
+        4
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_First_Molar_Group_$_GeometricTranslationInverse",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.004562079906463623,
+        0.0002841949462890625,
+        -2.8177504539489746,
+        1.0
+      ],
+      "children": [
+        5
+      ]
+    },
+    {
+      "name": "node",
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.15377193689346313,
+        -0.0002841949462890625,
+        -0.006924629211425781,
+        1.0
+      ],
+      "children": [
+        6
+      ]
+    },
+    {
+      "name": "Human_Teeth_Upper_First_Molar_Geo",
+      "mesh": 0
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "scene": 0,
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/baseColor.jpg"
+    },
+    {
+      "uri": "textures/occlusionRoughnessMetallic.jpg"
+    },
+    {
+      "uri": "textures/normal.png"
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

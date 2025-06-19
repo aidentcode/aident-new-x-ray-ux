@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px 4px 8px;
+    border-radius: 40px;
+    background-color: var(--icon-background);
+    height: 40px;
+    width: 100px;
+}
+.points {
+    font-size: 12px;
+    font-weight: 200;
+    color: var(--text-color-4);
+    text-align: center;
+    width: 60%;
+    span {
+        font-weight: 600;
+    }
+}
+.pie {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: -6px;
+}

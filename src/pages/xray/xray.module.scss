@@ -1,0 +1,187 @@
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    z-index: 11;
+}
+
+.right {
+    width: 300px;
+    height: calc(100vh - 61px);
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 0;
+    background-color: var(--border-color-1);
+
+    .title {
+        width: 100%;
+        padding: 12px 16px;
+        font-weight: 400;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        span {
+            flex: 1;
+        }
+    }
+    .tabSwitch {
+        width: calc(100% - 24px);
+    }
+    z-index: 2;
+}
+
+.right.collapsed {
+    width: 42px;
+    .title {
+        padding: 12px 0;
+    }
+}
+
+.content {
+    width: calc(100% - 300px);
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content.collapsed {
+    width: calc(100% - 42px);
+}
+
+.dropContainer {
+    width: 50vw;
+    height: 28vw;
+    background: var(--border-color-1);
+    border-radius: 48px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.switchContainer {
+    margin-bottom: 24px;
+    // position: absolute;
+    // top: 32px;
+}
+
+.dropContainer2 {
+    width: 80%;
+    height: 50%;
+    background: var(--background);
+    border-radius: 16px;
+    border: 1px dashed var(--border-color-2);
+    display: flex;
+    align-items: center;
+    .col1 {
+        flex: 1;
+        border: 1px solid transparent;
+        border-right: 1px dashed var(--border-color-2);
+        height: 100%;
+    }
+    .col2 {
+        border: 1px solid transparent;
+        flex: 1;
+        height: 100%;
+    }
+}
+.col1:hover {
+    border: 1px dashed var(--logo-color);
+    cursor: pointer;
+    border-radius: 16px 0 0 16px;
+}
+.col2:hover {
+    border: 1px dashed var(--logo-color);
+    cursor: pointer;
+    border-radius: 0px 16px 16px 0px;
+}
+
+.sizeMsg {
+    font-size: 12px;
+    color: var(--text-color-2);
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.learnContainer {
+    position: absolute;
+    bottom: auto;
+    top: 100%;
+    display: flex;
+    align-items: center;
+    background: var(--border-color-1);
+    opacity: 0.7;
+    font-size: 13px;
+    text-align: center;
+    padding: 4px;
+    justify-content: center;
+    border-radius: 0 0 32px 32px;
+    width: 65%;
+}
+.videoIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 24px;
+    margin-left: 8px;
+    path {
+        stroke: var(--text-color-2);
+    }
+}
+.learnContainer:hover {
+    cursor: pointer;
+    color: var(--logo-color);
+    text-decoration: underline;
+    .videoIcon {
+        path {
+            stroke: var(--logo-color);
+        }
+    }
+}
+
+.pane-container {
+    height: 100%;
+    width: 100%;
+}
+.view2d {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.view3d {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.conditionEmpty {
+    padding: 16px;
+    line-height: 1.5;
+    font-size: 14px;
+    color: var(--text-color-2);
+    text-align: center;
+}
+.conditionContent {
+    width: 100%;
+    overflow-y: hidden;
+    // padding: 12px 0;
+}
+.collapsedOverviewItem {
+    margin: 4px 0;
+}

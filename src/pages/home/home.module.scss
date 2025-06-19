@@ -1,0 +1,110 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-flow: wrap;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.right {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: var(--background-color-1);
+    padding: 16px;
+    margin: 16px;
+}
+.info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border: 1px solid var(--border-color-1);
+    border-radius: 32px;
+    padding: 24px 0;
+    margin-bottom: 32px;
+    background-color: var(--border-color-1);
+    border: 1px solid rgba(245, 233, 234, 0.33);
+    height: 60vh;
+}
+.infoImage {
+    width: 100%;
+    height: 70%;
+    position: relative;
+    top: 8px;
+    .placeholderImg {
+        width: 100%;
+        height: auto;
+        opacity: 0;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.tooth-video-container {
+    position: absolute !important;
+    top: -16px !important;
+    left: auto !important;
+    width: 60% !important;
+    height: calc(100% - 32px) !important;
+    overflow: hidden;
+    opacity: 0.9;
+}
+
+.infoTitle1,
+.infoTitle2 {
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 2;
+    width: 100%;
+    padding: 0 24px;
+    span {
+        font-weight: 700;
+    }
+}
+.infoTitle1 {
+    text-align: left;
+}
+.infoTitle2 {
+    text-align: right;
+}
+
+.readMore1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    span {
+        margin-left: 16px;
+        font-size: 30px;
+    }
+    margin-bottom: 12px;
+}
+.readMore1Icon {
+    width: 50px;
+}
+.readMore2 {
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.hemisphereImg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+}
