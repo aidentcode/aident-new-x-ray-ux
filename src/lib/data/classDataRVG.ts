@@ -355,6 +355,5 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
     //         },
     //     ],
     // },
-
     // Add more class IDs and their labels as needed
 };
