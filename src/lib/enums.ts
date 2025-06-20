@@ -39,6 +39,7 @@ export enum E_userStatus {
 }
 export enum E_headerDisplayType {
     Home = "Home",
+    Profile = "Profile",
     BeforeXRay = "BeforeXRay",
     AfterXRay = "AfterXRay",
 }

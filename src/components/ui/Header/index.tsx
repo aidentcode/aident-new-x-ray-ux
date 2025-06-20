@@ -162,19 +162,23 @@ export default function Header({
 
     let rightContent = null;
     let leftContent = null;
+    const logoImage = (
+        <Image
+            src={logo}
+            alt="logo"
+            width={50}
+            height={50}
+            className={styles["logo-img"]}
+            fetchPriority="high"
+            priority={true}
+            onClick={handleLogoClick}
+        />
+    );
+
     switch (headerDisplayType) {
-        case E_headerDisplayType.Home: {
-            rightContent = (
-                <>
-                    <Image
-                        src={logo}
-                        alt="logo"
-                        width={50}
-                        height={50}
-                        className={styles["logo-img"]}
-                    />
-                </>
-            );
+        case E_headerDisplayType.Home:
+        case E_headerDisplayType.Profile: {
+            rightContent = <>{logoImage}</>;
             break;
         }
         case E_headerDisplayType.AfterXRay: {
@@ -203,14 +207,7 @@ export default function Header({
                         onClickCallback={startClearXray}
                     />
                     <div className={styles["vertical-divider"]}></div>
-                    <Image
-                        src={logo}
-                        alt="logo"
-                        width={50}
-                        height={50}
-                        className={styles["logo-img"]}
-                        onClick={handleLogoClick}
-                    />
+                    {logoImage}
                 </>
             );
             break;
@@ -234,14 +231,7 @@ export default function Header({
                     <div className={styles["vertical-divider"]}></div>
                     <CustomSvgIcon iconId="delete2" disabled={true} />
                     <div className={styles["vertical-divider"]}></div>
-                    <Image
-                        src={logo}
-                        alt="logo"
-                        width={50}
-                        height={50}
-                        className={styles["logo-img"]}
-                        onClick={handleLogoClick}
-                    />
+                    {logoImage}
                 </>
             );
             break;
@@ -274,6 +264,16 @@ export default function Header({
                         <CustomSvgIcon
                             iconId="backward"
                             tooltipText="Go back"
+                            onClickCallback={() => {
+                                if (
+                                    headerDisplayType ===
+                                    E_headerDisplayType.Home
+                                ) {
+                                    router.push("/home");
+                                } else {
+                                    router.back();
+                                }
+                            }}
                         />
                     )}
                     <CustomTooltip title="My Account" placement="bottom">

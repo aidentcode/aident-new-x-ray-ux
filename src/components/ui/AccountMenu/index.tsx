@@ -68,12 +68,7 @@ export default function AccountMenu({
                 },
             }}
         >
-            <MenuItem
-                onClick={onClose}
-                className={styles["menu-item"]}
-                // TODO: make this visible once profile page is implemented
-                style={{ display: "none" }}
-            >
+            <MenuItem onClick={onClose} className={styles["menu-item"]}>
                 <Link className={styles["menu-item-link"]} href={"/profile"}>
                     <ListItemIcon className={styles["icon"]}>
                         <AccountCircleOutlinedIcon fontSize="small" />
