@@ -6,7 +6,8 @@ import Image from "next/image";
 import { sampleUser } from "@/lib/data/sample-responses";
 import { useState } from "react";
 import clsx from "clsx";
-import CreditsDisplay from "@/components/ui/CreditsDisplay";
+import ProfileTabView from "@/components/ui/ProfileTabView";
+import TransactionsTabView from "@/components/ui/TransactionsTabView";
 
 export default function Profile() {
     const [tabId, setTabId] = useState<"profile" | "transactions">("profile");
@@ -31,13 +32,9 @@ export default function Profile() {
                         handleTabChange={handleTabChange}
                     />
                     <div className={styles.tabContent}>
-                        {tabId === "profile" && <ProfileTab />}
-                        {tabId === "transactions" && <div>Transactions</div>}
+                        {tabId === "profile" && <ProfileTabView />}
+                        {tabId === "transactions" && <TransactionsTabView />}
                     </div>
-                    {/* <div className={styles.profileTitle}></div>
-                    <div className={styles.profileSubtitle}>
-                        {sampleUser.email_id}
-                    </div> */}
                 </div>
 
                 <Image
@@ -49,32 +46,6 @@ export default function Profile() {
                 />
             </div>
         </Layout>
-    );
-}
-
-function ProfileTab() {
-    return (
-        <div className={styles.profileTab}>
-            <div className={styles.packageDetails}>
-                <div className={styles.profileTabTitle}>Current package</div>
-                <div className={styles.scale1_5}>
-                    <CreditsDisplay />
-                </div>
-                <div className={styles.detailRowContainer}>
-                    <div className={styles.detailRow}>
-                        <div className={styles.detailRowTitle}>Expires on:</div>
-                        <div className={styles.detailRowValue}>2025-07-20</div>
-                    </div>
-                    <div className={styles.detailRow}>
-                        <div className={styles.detailRowTitle}>
-                            Total scans:
-                        </div>
-                        <div className={styles.detailRowValue}>3</div>
-                    </div>
-                </div>
-            </div>
-            <div className={styles.userDetails}></div>
-        </div>
     );
 }
 
@@ -100,7 +71,7 @@ function TabSwitch({
                     tabId === "profile" && styles.active,
                 ])}
             >
-                Overview
+                Profile
             </div>
             <div
                 className={clsx([
@@ -108,7 +79,7 @@ function TabSwitch({
                     tabId === "transactions" && styles.active,
                 ])}
             >
-                List
+                Transactions
             </div>
         </div>
     );

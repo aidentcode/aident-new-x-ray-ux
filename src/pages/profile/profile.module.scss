@@ -6,7 +6,8 @@
     justify-content: space-between;
     position: relative;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 60px);
+    overflow-y: hidden;
 }
 .content {
     width: 100%;
@@ -55,6 +56,7 @@
     height: 100%;
     border: 1px solid var(--border-color-1);
     border-radius: 0 24px 24px 24px;
+    overflow-y: auto;
 }
 
 .hemisphereImg {
@@ -62,54 +64,4 @@
     bottom: 16px;
     right: 4px;
     width: 100px;
-}
-.profileTab {
-    width: 100%;
-    height: 100%;
-}
-.packageDetails {
-    padding: 8px 16px;
-    width: 225px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--border-color-1);
-    border-radius: 32px;
-    margin: 16px;
-    background: var(--border-color-1);
-}
-.profileTabTitle {
-    margin-top: 8px;
-    margin-bottom: 24px;
-    color: var(--text-color-2);
-}
-.scale1_5 {
-    transform: scale(1.5);
-}
-.detailRowContainer {
-    margin-top: 24px;
-    margin-bottom: 0px;
-    width: 100%;
-}
-.detailRow {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 8px 0;
-    border-top: 1px solid var(--border-color-2);
-}
-.detailRowTitle {
-    color: var(--text-color-2);
-    font-size: 14px;
-}
-.detailRowValue {
-    color: var(--text-color-2);
-    font-size: 14px;
-}
-.userDetails {
-    width: 100%;
-    border-top: 1px solid var(--border-color-1);
 }
