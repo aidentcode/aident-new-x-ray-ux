@@ -1,2 +1,2 @@
 // Initialize global variables
-(global as any).FabricObjectMap = {};
+export const FabricObjectMap: Record<string, number> = {};

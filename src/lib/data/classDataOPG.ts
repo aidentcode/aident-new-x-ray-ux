@@ -313,7 +313,7 @@ export const classDataOPG: Record<string, T_xrayClassData> = {
     [E_opgClassId.uneruptedTooth]: {
         classId: E_opgClassId.uneruptedTooth,
         label: "Unerupted tooth",
-        colorCode: E_colorCode.black,
+        colorCode: E_colorCode.magenta,
         description: "A tooth that has formed but not emerged into the mouth.",
         treatmentVideos: [
             {

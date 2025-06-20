@@ -1,7 +1,6 @@
 import { T_shapeUpdateData } from "@/lib/types/types";
 import { Group, Line, Textbox } from "fabric";
-
-declare const FabricObjectMap: Record<string, number>;
+import { FabricObjectMap } from "../init/globalVars";
 
 export const drawScale = (updateData: T_shapeUpdateData) => {
     const canvas = updateData.canvas;

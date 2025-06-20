@@ -13,8 +13,7 @@ import {
 } from "../types/types";
 import { classDataOPG } from "./classDataOPG";
 import { classDataRVG } from "./classDataRVG";
-
-declare const FabricObjectMap: Record<string, number>;
+import { FabricObjectMap } from "../init/globalVars";
 
 export const updateOverviews = (
     conditions: T_condition[],

@@ -315,7 +315,7 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
     [E_rvgClassId.uneruptedTooth]: {
         classId: E_rvgClassId.uneruptedTooth,
         label: "Unerupted tooth",
-        colorCode: E_colorCode.black,
+        colorCode: E_colorCode.magenta,
         description: "A tooth that has formed but not emerged into the mouth.",
         treatmentVideos: [
             {

@@ -18,8 +18,7 @@ import { updateOverviews } from "@/lib/data/inference-to-overview";
 import useEventListener from "@use-it/event-listener";
 import { handleKeyDown, handleKeyUp } from "@/lib/keyboard-utils";
 import { setShapeUpdateData } from "@/lib/global-cache";
-
-declare const FabricObjectMap: Record<string, number>;
+import { FabricObjectMap } from "@/lib/init/globalVars";
 
 export default function XrayCanvas() {
     const xrayContext = useContext(XrayContext);
@@ -145,8 +144,6 @@ export default function XrayCanvas() {
                     });
                 });
             } else {
-                // console.log("updateOverlays");
-                // console.log("draw FabricObjectMap", FabricObjectMap);
                 updateOverlays(updateData);
             }
         }

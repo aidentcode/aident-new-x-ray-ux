@@ -24,8 +24,7 @@ import { getColorFromCodeCode, hexToRgba } from "../data/colorData";
 import { removeAllObjects } from "./fabric-utils";
 import { decodeName } from "./canvas-utils";
 import { T_xrayContext } from "@/contexts/xrayContext";
-
-declare const FabricObjectMap: Record<string, number>;
+import { FabricObjectMap } from "../init/globalVars";
 
 export const updateOverlays = (updateData: T_shapeUpdateData) => {
     const { canvas, xrayContext } = updateData;

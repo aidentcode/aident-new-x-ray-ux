@@ -2,8 +2,8 @@ import { T_condition } from "../types/types";
 import { E_conditionStatus } from "../enums";
 import { T_xrayContext } from "@/contexts/xrayContext";
 import { updateOverviews } from "../data/inference-to-overview";
+import { FabricObjectMap } from "../init/globalVars";
 
-declare const FabricObjectMap: Record<string, number>;
 export const rejectCondition = (
     item: T_condition,
     xrayContext: T_xrayContext

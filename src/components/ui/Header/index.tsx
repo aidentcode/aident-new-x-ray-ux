@@ -135,12 +135,12 @@ export default function Header({
                 },
                 body: JSON.stringify(obj),
             });
-            console.log("API response 1 = ", response);
+            // console.log("API response 1 = ", response);
             const inferenceResponse = await response.json();
             console.log("API response 2= ", inferenceResponse);
             setWaitMsg("");
             // console.log("API response = ", inferenceResponse);
-            // setInferenceResponse({ ...inferenceResponse });
+            setInferenceResponse({ ...inferenceResponse });
         } catch (error) {
             console.error("Error starting scan: ", error);
             setWaitMsg("");
