@@ -146,9 +146,12 @@ export default function OverviewContainer() {
                 >
                     <div className={styles.listGroupTitle}>Pathological</div>
                 </div>
-                {filteredList_pathology.map((item) => (
+                {filteredList_pathology.map((item, index) => (
                     <>
-                        <OverviewItem key={item.classId} item={item} />
+                        <OverviewItem
+                            key={`${item.classId}@${index}`}
+                            item={item}
+                        />
                     </>
                 ))}
                 <div
@@ -166,9 +169,12 @@ export default function OverviewContainer() {
                         Non-pathological
                     </div>
                 </div>
-                {filteredList_nonPathology.map((item) => (
+                {filteredList_nonPathology.map((item, index) => (
                     <>
-                        <OverviewItem key={item.classId} item={item} />
+                        <OverviewItem
+                            key={`${item.classId}@${index}`}
+                            item={item}
+                        />
                     </>
                 ))}
             </div>

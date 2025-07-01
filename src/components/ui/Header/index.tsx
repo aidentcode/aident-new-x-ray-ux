@@ -16,7 +16,10 @@ import TutorialVideo from "@/components/modals/TutorialVideo";
 import ConfirmLogout from "@/components/modals/ConfirmLogout";
 import ConfirmClearXray from "@/components/modals/ConfirmClearXray";
 import XrayContext from "@/contexts/xrayContext";
-import { sampleInteferenceResponseRVG_test1 } from "@/lib/data/sample-responses";
+import {
+    sampleInteferenceResponseRVG_test1,
+    sampleInteferenceResponseRVG_test4,
+} from "@/lib/data/sample-responses";
 import { updateOverviews } from "@/lib/data/inference-to-overview";
 import WaitModal from "@/components/modals/WaitModal";
 import { getBgImgDimensions } from "@/lib/canvas/bg-utils";
@@ -129,8 +132,8 @@ export default function Header({
                 cache: "no-cache",
                 headers: {
                     "Content-Type": "application/json",
+                    //"x-api-key": process.env.XRAY_API_KEY || "",
                     "x-api-key": "HaTwDQzzu7a1y3XtfPgnF8QyPnm7sfgG3Hj96d2Q",
-                    //"x-api-key": "vzj72Oo4El1AU3BfP5qiI3gbSCSHm68l7SMoH11H",
                     // "Access-Control-Allow-Origin": "*",
                 },
                 body: JSON.stringify(obj),
@@ -138,6 +141,7 @@ export default function Header({
             // console.log("API response 1 = ", response);
             const inferenceResponse = await response.json();
             console.log("API response 2= ", inferenceResponse);
+            console.log("API response 3= ", JSON.stringify(inferenceResponse));
             setWaitMsg("");
             // console.log("API response = ", inferenceResponse);
             setInferenceResponse({ ...inferenceResponse });
@@ -155,9 +159,9 @@ export default function Header({
             setWaitMsg("");
             setConditions([]);
             setInferenceResponse({
-                ...sampleInteferenceResponseRVG_test1,
+                ...sampleInteferenceResponseRVG_test4,
             });
-        }, 5000);
+        }, 1000);
     };
 
     let rightContent = null;
@@ -169,7 +173,7 @@ export default function Header({
             width={50}
             height={50}
             className={styles["logo-img"]}
-            fetchPriority="high"
+            //fetchpriority="high"
             priority={true}
             onClick={handleLogoClick}
         />
@@ -195,7 +199,7 @@ export default function Header({
                     <PrimaryButton
                         btnTitle="Start scan"
                         onClick={() => {
-                            // handleStartScanTest();
+                            //handleStartScanTest();
                             handleStartScan();
                         }}
                         disabled={false}

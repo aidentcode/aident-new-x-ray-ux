@@ -39,14 +39,14 @@ export const createMask = (canvas: Canvas, data: T_createMaskData) => {
     const polygonName = ["mask", classId, index].join("-");
     const smoothedPathName = ["smoothMask", classId, index].join("-");
 
-    const t1 = hexToRgba(color, 0.5);
+    const t1 = hexToRgba(color, 0.1);
     const rgbaColorString1 = `rgba(${t1.r}, ${t1.g}, ${t1.b}, ${t1.a})`;
     //console.log("rgbaColorString1=", rgbaColorString1);
 
     const pathOptions = {
         stroke: color,
         fill: rgbaColorString1,
-        strokeWidth: 0.5,
+        strokeWidth: 2,
         perPixelTargetFind: true,
         left,
         top,

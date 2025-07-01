@@ -97,7 +97,7 @@ function ConditionList({
                     <CustomSvgIcon iconId={"expandSidebar"} />
                 </div>
                 <div>
-                    {overviewItems.map((item) => {
+                    {overviewItems.map((item, index) => {
                         const { label, colorCode, items, isHidden } = item;
                         const number = items.filter(
                             (x) => x.status !== E_conditionStatus.rejected
@@ -108,7 +108,7 @@ function ConditionList({
                             <>
                                 <CustomTooltip
                                     title={`${label}: ${number}`}
-                                    key={item.classId}
+                                    key={`${item.classId}@${index}`}
                                     placement="left"
                                 >
                                     <div
@@ -232,6 +232,7 @@ function DropXrayZone() {
     const onImgLoad = (data: T_onFileLoad[]) => {
         console.log("img load data=", data);
         const base64FromFile = data[0].result as string;
+        //console.log("base64FromFile=", base64FromFile);
         if (base64FromFile) {
             setBase64ImgFromFile(base64FromFile);
             setImageSetup(true);
@@ -256,6 +257,8 @@ function DropXrayZone() {
                             accept={{
                                 "image/png": [".png"],
                                 "image/jpeg": [".jpg", ".jpeg"],
+                                "image/bmp": [".bmp"],
+                                //"image/tiff": [".tiff"],
                             }}
                             ctaMsg={
                                 <>
@@ -269,11 +272,11 @@ function DropXrayZone() {
                         />
                     </div>
                     <div className={clsx([styles.col, styles.col2])}>
-                        <CopyPasteZone />
+                        <CopyPasteZone onLoad={onImgLoad} />
                     </div>
                 </div>
                 <div className={styles.sizeMsg}>
-                    .png, .jpeg/.jpg, .bmp or .tiff upto 10MB
+                    .png, .jpeg/.jpg or .bmp upto 10MB
                 </div>
                 <div
                     className={styles.learnContainer}

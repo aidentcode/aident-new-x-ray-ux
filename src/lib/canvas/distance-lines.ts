@@ -7,7 +7,8 @@ import {
 } from "../types/types";
 import { createSelectClip } from "./clip-utils";
 import { E_opgClassId, E_rvgClassId } from "../enums";
-import { getColorFromCodeCode } from "../data/colorData";
+import { getColorFromCodeCode, hexToRgba } from "../data/colorData";
+import { hexToRgb } from "@mui/material";
 
 export const addDistanceLines = (
     data: {
@@ -82,9 +83,18 @@ export const addDistanceLine = (
 ) => {
     // console.log("addDistanceLine=", data);
     const { lineData, classId, index, color, unit, bgImgObj, classData } = data;
-    const [x1, y1, x2, y2, measurement] = lineData;
+    let [x1, y1, x2, y2, measurement] = lineData;
     const width = x2 - x1;
     const height = y2 - y1;
+    // console.log("x1,y1,x2,y2,measurement=", x1, y1, x2, y2, measurement);
+    // console.log("bgImgObj=", bgImgObj.getBoundingRect());
+
+    //TODO: This is since distance numbers are not normalised
+    const bgImgBoundingRect = bgImgObj.getBoundingRect();
+    x1 = x1 + bgImgBoundingRect.left;
+    y1 = y1 + bgImgBoundingRect.top;
+    x2 = x2 + bgImgBoundingRect.left;
+    y2 = y2 + bgImgBoundingRect.top;
 
     const line = new Line([x1, y1, x2, y2], {
         name: ["line", classId, index].join("-"),
@@ -93,18 +103,24 @@ export const addDistanceLine = (
         perPixelTargetFind: true,
     });
     const middle = getMiddle(x1, y1, x2, y2); //{ x: (x1 + x2) * 0.5, y: (y1 + y2) * 0.5 };
+    const lineLength = getDistance(x1, y1, x2, y2);
+    // console.log("color=", color, hexToRgba(color, 0.5));
+    const rgbaColor = hexToRgba(color, 0.5);
+    // console.log("lineLength=", lineLength);
     const measurementText = new Textbox(`${measurement}${unit || "mm"}`, {
         name: ["measurementText", classId, index].join("-"),
         left: middle.x, // Adjust the position as needed
-        top: middle.y, // Adjust the position as needed
+        //top: middle.y, // Adjust the position as needed
+        top: lineLength < 40 ? Math.min(y1, y2) - 10 : middle.y, // Adjust the position as needed
         fontSize: 12, // Set the font size for the class_id and class_label text
         fontFamily: "sans-serif",
         fontWeight: 300,
-        textBackgroundColor: color,
+        textBackgroundColor: `rgba(${rgbaColor.r}, ${rgbaColor.g}, ${rgbaColor.b}, ${rgbaColor.a})`,
         fill: "white", // Set the color for the text (white will be visible on most colors)
         perPixelTargetFind: false,
         originX: "center",
         originY: "center",
+        visible: false, //Not visible by default
     });
     const startPoint = new Circle({
         radius: 2,
@@ -138,6 +154,17 @@ export const addDistanceLine = (
     group.set({
         name: groupName,
     });
+    group.on("mouseover", () => {
+        console.log("mouseover");
+        measurementText.set({ visible: true });
+        canvas.requestRenderAll();
+    });
+    group.on("mouseout", () => {
+        console.log("mouseout");
+        measurementText.set({ visible: false });
+        canvas.requestRenderAll();
+    });
+
     canvas.add(group);
     const eventPayload: T_overlayFabricData = {
         type: group.type,

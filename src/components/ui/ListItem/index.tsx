@@ -76,7 +76,9 @@ export default function ListItem({ isSelected, item }: ListItemProps) {
                             width={100}
                             height={100}
                             unoptimized
-                            objectFit="contain"
+                            style={{
+                                objectFit: "contain",
+                            }}
                         />
                     </div>
                     <div className={styles.imgContainer2}>
@@ -87,7 +89,9 @@ export default function ListItem({ isSelected, item }: ListItemProps) {
                             width={100}
                             height={100}
                             unoptimized
-                            objectFit="contain"
+                            style={{
+                                objectFit: "contain",
+                            }}
                         />
                     </div>
                     <div className={styles["bottom-right-container"]}>

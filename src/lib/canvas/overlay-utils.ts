@@ -66,6 +66,7 @@ export const drawOverlays = (
     const { bgLeft, bgTop, bgWidth, bgHeight } = getBgImgDimensions(canvas);
     const classData = xrayType === E_xrayType.rvg ? classDataRVG : classDataOPG;
 
+    // --- Tooth overlay-------
     bbox.forEach((rectPoints, index) => {
         const [x1, y1, x2, y2] = rectPoints;
         const classId = (class_ids[index] + "") as E_opgClassId | E_rvgClassId;
@@ -91,21 +92,12 @@ export const drawOverlays = (
                 },
                 (eventPayload) => {
                     rectangleOverlayData.push(eventPayload);
-                    // if (rectangleOverlayData.length !== bbox.length) return;
-                    // addDistanceLines(
-                    //     { canvas, distances, class_ids, classData, bgImgObj },
-                    //     (distanceOverlays) => {
-                    //         onComplete([
-                    //             ...rectangleOverlayData,
-                    //             ...distanceOverlays,
-                    //         ]);
-                    //     }
-                    // );
                 }
             );
         }
     });
 
+    //---- Condition overlays---------
     bbox.forEach((rectPoints, index) => {
         const [x1, y1, x2, y2] = rectPoints;
         const classId = (class_ids[index] + "") as E_opgClassId | E_rvgClassId;
@@ -292,7 +284,7 @@ export const addRectangle = (
         if (mask) {
             mask.set({
                 fill: rgbaColorString1,
-                strokeWidth: 1,
+                strokeWidth: 2,
             });
         }
         if (classText) {
@@ -313,13 +305,13 @@ export const addRectangle = (
         const { classId } = decodeName(name);
         const classDataItem = classData[classId];
         const color = getColorFromCodeCode(classDataItem.colorCode);
-        const t1 = hexToRgba(color, 0.5);
+        const t1 = hexToRgba(color, 0.25);
         const rgbaColorString1 = `rgba(${t1.r}, ${t1.g}, ${t1.b}, ${t1.a})`;
 
         if (mask) {
             mask.set({
                 fill: rgbaColorString1,
-                strokeWidth: 0.5,
+                strokeWidth: 2,
             });
         }
         if (classText) {
