@@ -132,8 +132,7 @@ export default function Header({
                 cache: "no-cache",
                 headers: {
                     "Content-Type": "application/json",
-                    //"x-api-key": process.env.XRAY_API_KEY || "",
-                    "x-api-key": "HaTwDQzzu7a1y3XtfPgnF8QyPnm7sfgG3Hj96d2Q",
+                    "x-api-key": process.env.XRAY_API_KEY || "",
                     // "Access-Control-Allow-Origin": "*",
                 },
                 body: JSON.stringify(obj),
