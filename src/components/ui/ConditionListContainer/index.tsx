@@ -85,9 +85,9 @@ export default function ConditionListContainer() {
                 </FormControl>
             </div>
             <div className={styles.listContainer}>
-                {filteredList.map((item) => (
+                {filteredList.map((item, index) => (
                     <ListItem
-                        key={item.id}
+                        key={`${item.id}@${index}`}
                         item={item}
                         isSelected={selectedConditionId === item.id}
                     />

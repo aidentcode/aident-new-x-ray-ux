@@ -1,11 +1,12 @@
 import styles from "./comingsoon.module.scss";
 import logo from "../../../public/logo/AiDent-logo-2.png";
+import Image from "next/image";
 
 export default function ComingSoon() {
     return (
         <div className={styles.container}>
             <div className={styles.logoHeader}>
-                <img src={logo.src} alt="logo" width={120} height={120} />
+                <Image src={logo} alt="logo" width={120} height={120} />
             </div>
             <div className={styles["text-container-1"]}>
                 <div className={styles["line1"]}>

@@ -124,6 +124,12 @@ export default function Header({
         const apiUrl =
             "https://182krwxtm7.execute-api.ap-south-1.amazonaws.com/temp/inference";
 
+        const apiKey = process.env.NEXT_PUBLIC_XRAY_API_KEY || "";
+        if (!apiKey) {
+            console.error("XRAY_API_KEY is not set:", apiKey);
+            return;
+        }
+
         setWaitMsg("Starting scan...");
         try {
             const response = await fetch(apiUrl, {
@@ -132,7 +138,7 @@ export default function Header({
                 cache: "no-cache",
                 headers: {
                     "Content-Type": "application/json",
-                    "x-api-key": process.env.XRAY_API_KEY || "",
+                    "x-api-key": apiKey,
                     // "Access-Control-Allow-Origin": "*",
                 },
                 body: JSON.stringify(obj),

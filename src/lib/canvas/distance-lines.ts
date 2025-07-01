@@ -155,12 +155,12 @@ export const addDistanceLine = (
         name: groupName,
     });
     group.on("mouseover", () => {
-        console.log("mouseover");
+        // console.log("mouseover");
         measurementText.set({ visible: true });
         canvas.requestRenderAll();
     });
     group.on("mouseout", () => {
-        console.log("mouseout");
+        // console.log("mouseout");
         measurementText.set({ visible: false });
         canvas.requestRenderAll();
     });
