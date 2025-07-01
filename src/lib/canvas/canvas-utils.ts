@@ -40,7 +40,7 @@ export const attachCanvasEvents = (updateData: T_shapeUpdateData) => {
     const { canvas, xrayContext } = updateData;
     canvas.off();
     canvas.on("mouse:down", (opt) => {
-        console.log("canvas click ", opt);
+        // console.log("canvas click ", opt);
         const { target } = opt;
         if (!target) return;
         const name = target.get("name");
