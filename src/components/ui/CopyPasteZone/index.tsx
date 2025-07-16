@@ -1,6 +1,6 @@
 import styles from "./copyPasteZone.module.scss";
 import CustomSvgIcon from "../CustomSvgIcon";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { T_onFileLoad } from "@/lib/types/types";
 
 type CopyPasteZoneProps = {
@@ -224,12 +224,87 @@ export default function CopyPasteZone({
         }
     };
 
+    const pasteAreaRef = useRef<HTMLDivElement>(null);
+    const handlePaste = (event: React.ClipboardEvent<HTMLDivElement>) => {
+        const clipboardData = event.clipboardData;
+        if (clipboardData) {
+            console.log("clipboardData=", clipboardData);
+            const items = clipboardData.items;
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                if (item.kind === "file") {
+                    const file = item.getAsFile();
+                    if (file) {
+                        const reader = new FileReader();
+                        if (imgFormat === "base64") reader.readAsDataURL(file);
+                        else reader.readAsArrayBuffer(file);
+
+                        reader.onabort = () =>
+                            console.log("file reading was aborted");
+                        reader.onerror = () =>
+                            console.log("file reading has failed");
+                        reader.onload = () => {
+                            // console.log("file onload");
+                            // Do whatever you want with the file contents
+                            // console.log("file=", file);
+                            // console.log("imgFormat=", imgFormat);
+                            //console.log("reader.result=", reader.result);
+
+                            const result = reader.result;
+                            setUploadedImage(result as string);
+                            // Create file data object similar to ImageDropZone
+                            const fileData = {
+                                type: file.type,
+                                size: file.size,
+                                name: `clipboard-image-${Date.now()}.${
+                                    file.type.split("/")[1]
+                                }`,
+                            };
+
+                            const loadResult: T_onFileLoad = {
+                                result: result,
+                                fileData: fileData,
+                            };
+                            // console.log("loadResult=", loadResult);
+                            if (onLoad) {
+                                onLoad([loadResult]);
+                            }
+
+                            // if (imgFormat === "base64") {
+                            //   if (onLoad) onLoad({ base64Img: reader.result });
+                            // } else {
+                            //   if (onLoad) onLoad({ imageBuffer: reader.result });
+                            // }
+                        };
+                    }
+                }
+            }
+        }
+    };
+
     return (
-        <div className={styles.container} onClick={() => handleClick()}>
-            <CustomSvgIcon iconId="copyPaste" />
-            <div className={styles.title}>
-                Click here to copy-paste from the clipboard
+        <>
+            {/* Paste Zone */}
+            <div
+                ref={pasteAreaRef}
+                suppressContentEditableWarning={true}
+                contentEditable
+                className={styles.container}
+                onPaste={handlePaste}
+                onClick={() => pasteAreaRef.current?.focus()}
+            >
+                <CustomSvgIcon iconId="copyPaste" />
+                <div className={styles.title}>
+                    Click here and press Ctrl+V to paste directly from the
+                    clipboard
+                </div>
             </div>
-        </div>
+            {/* <div className={styles.container} onClick={() => handleClick()}>
+                <CustomSvgIcon iconId="copyPaste" />
+                <div className={styles.title}>
+                    Click here to copy-paste from the clipboard
+                </div>
+            </div> */}
+        </>
     );
 }
