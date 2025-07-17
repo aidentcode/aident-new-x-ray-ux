@@ -3,6 +3,7 @@ import { E_opgClassId, E_rvgClassId, E_xrayType } from "../enums";
 import { T_point2D } from "../types/types";
 import { hexToRgba } from "../data/colorData";
 import paper from "paper";
+import { T_xrayContext } from "@/contexts/xrayContext";
 
 type T_createMaskData = {
     normalisedPoints: T_point2D[];
@@ -13,6 +14,7 @@ type T_createMaskData = {
     top: number;
     boundingWidth: number;
     boundingHeight: number;
+    xrayContext: T_xrayContext;
 };
 
 export const createMask = (canvas: Canvas, data: T_createMaskData) => {
@@ -25,6 +27,7 @@ export const createMask = (canvas: Canvas, data: T_createMaskData) => {
         top,
         boundingWidth,
         boundingHeight,
+        xrayContext,
     } = data;
 
     const points = normalisedPoints.map((point) => {
@@ -63,12 +66,15 @@ export const createMask = (canvas: Canvas, data: T_createMaskData) => {
         paperPath.add(paperPoint);
     }
     paperPath.closed = true;
-    paperPath.simplify(1.3);
-    //-- Other options for smoothing:
-    // paperPath.smooth({ type: "geometric", factor: 0.5 });
-    //paperPath.smooth({ type: "catmull-rom", factor: 0.0 });
-    //paperPath.smooth({ type: "catmull-rom", factor: 0.5 });
-    //paperPath.smooth({ type: "catmull-rom", factor: 1.0 });
+
+    if (xrayContext.smoothCurves) {
+        paperPath.simplify(1.25);
+        //-- Other options for smoothing:
+        paperPath.smooth({ type: "geometric", factor: 0.2 });
+        // paperPath.smooth({ type: "catmull-rom", factor: 0.0 });
+        // paperPath.smooth({ type: "catmull-rom", factor: 0.5 });
+        //paperPath.smooth({ type: "catmull-rom", factor: 1.0 });
+    }
     const smoothedPath = paperPath2FabricPath(paperPath, pathOptions);
     smoothedPath.set({
         name: smoothedPathName,

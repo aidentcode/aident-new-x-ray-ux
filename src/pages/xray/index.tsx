@@ -105,23 +105,19 @@ function ConditionList({
                         if (isHidden || !number) return <></>;
 
                         return (
-                            <>
-                                <CustomTooltip
-                                    title={`${label}: ${number}`}
-                                    key={`${item.classId}@${index}`}
-                                    placement="left"
-                                >
-                                    <div
-                                        className={styles.collapsedOverviewItem}
-                                    >
-                                        <ColorIndicator
-                                            colorCode={colorCode}
-                                            displayType={"number"}
-                                            number={number}
-                                        />
-                                    </div>
-                                </CustomTooltip>
-                            </>
+                            <CustomTooltip
+                                title={`${label}: ${number}`}
+                                key={`${item.classId}@${index}`}
+                                placement="left"
+                            >
+                                <div className={styles.collapsedOverviewItem}>
+                                    <ColorIndicator
+                                        colorCode={colorCode}
+                                        displayType={"number"}
+                                        number={number}
+                                    />
+                                </div>
+                            </CustomTooltip>
                         );
                     })}
                 </div>
@@ -133,10 +129,10 @@ function ConditionList({
         <>
             <div className={styles.title}>
                 <span>Conditions ({conditionCount})</span>
-                <CustomSvgIcon
+                {/* <CustomSvgIcon
                     iconId={"collapseSidebar"}
                     onClickCallback={onToggleSidebar}
-                />
+                /> */}
             </div>
             <div className={styles.tabSwitch}>
                 <TabSwitch

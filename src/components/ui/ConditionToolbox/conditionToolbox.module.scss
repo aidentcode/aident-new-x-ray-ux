@@ -1,6 +1,6 @@
 .container {
     width: 200px;
-    height: 85px;
+    min-height: 85px;
     border: 1px solid var(--border-color-1);
     border-radius: 8px;
     background: var(--overlay-background);
@@ -64,4 +64,20 @@
     color: var(--text-color-1);
     font-size: 12px;
     text-align: right;
+}
+
+.content-item.criticalTimeline {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: auto;
+
+    .field {
+        width: 100%;
+    }
+    .value {
+        width: 100%;
+        text-align: left;
+        margin-top: 4px;
+    }
 }

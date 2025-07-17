@@ -8,6 +8,7 @@ import { useContext, useRef, useEffect, useState } from "react";
 import XrayContext from "@/contexts/xrayContext";
 import { rejectCondition, toggleHidden } from "@/lib/canvas/condition-utils";
 import ZoomedView from "../ZoomedView";
+import { computeConditionMetrics } from "@/lib/data/inference-to-conditions";
 
 type ListItemProps = {
     isSelected?: boolean;
@@ -48,6 +49,7 @@ export default function ListItem({ isSelected, item }: ListItemProps) {
     const handleToggleHidden = () => {
         toggleHidden(item, xrayContext);
     };
+    const metrics = computeConditionMetrics(item);
 
     return (
         <>
@@ -142,6 +144,35 @@ export default function ListItem({ isSelected, item }: ListItemProps) {
                             />
                         </div>
                     </div>
+                    <div
+                        className={styles["content-container"]}
+                        style={{ display: "none" }}
+                    >
+                        {metrics.map((metric) => (
+                            <div
+                                key={metric.id}
+                                className={clsx([
+                                    styles["content-item"],
+                                    styles[metric.id],
+                                ])}
+                            >
+                                <div className={styles["field"]}>
+                                    {metric.label}
+                                </div>
+                                <div className={styles["value"]}>
+                                    {metric.value}
+                                </div>
+                            </div>
+                        ))}
+                        {metrics.length === 0 && (
+                            <div className={styles["content-item"]}>
+                                <div className={styles["field"]}>
+                                    No metrics to display
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
                     <div className={styles["text-container"]}>
                         {item.description || "--"}
                     </div>

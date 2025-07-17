@@ -62,6 +62,8 @@ export type T_xrayContext = {
     ) => void;
     toothMaterial: "wireframe" | "solid";
     setToothMaterial: (toothMaterial: "wireframe" | "solid") => void;
+    smoothCurves: boolean;
+    setSmoothCurves: (smoothCurves: boolean) => void;
 };
 const defaultValue: T_xrayContext = {
     tabId: "overview",
@@ -98,6 +100,8 @@ const defaultValue: T_xrayContext = {
     setTooth3dView: () => {},
     toothMaterial: "wireframe",
     setToothMaterial: () => {},
+    smoothCurves: true,
+    setSmoothCurves: () => {},
 };
 const XrayContext = createContext(defaultValue);
 
@@ -137,6 +141,7 @@ function XrayProvider({ children }: XrayProviderProps) {
     const [toothMaterial, setToothMaterial] = useState<"wireframe" | "solid">(
         "wireframe"
     );
+    const [smoothCurves, setSmoothCurves] = useState(false);
     const xrayData: T_xrayContext = {
         tabId,
         setTabId,
@@ -172,6 +177,8 @@ function XrayProvider({ children }: XrayProviderProps) {
         setTooth3dView,
         toothMaterial,
         setToothMaterial,
+        smoothCurves,
+        setSmoothCurves,
     };
 
     return (

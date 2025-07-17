@@ -32,6 +32,12 @@ export type T_condition = T_xrayClassData & {
     id: string;
     clippedImageSrc?: string;
     clippedImageSrc2?: string;
+    criticalTimeline?: string;
+};
+export type T_conditionMetric = {
+    id: string;
+    label: string;
+    value: string;
 };
 
 export type T_overviewItem = T_xrayClassData & {

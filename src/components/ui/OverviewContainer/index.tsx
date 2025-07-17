@@ -147,12 +147,10 @@ export default function OverviewContainer() {
                     <div className={styles.listGroupTitle}>Pathological</div>
                 </div>
                 {filteredList_pathology.map((item, index) => (
-                    <>
-                        <OverviewItem
-                            key={`${item.classId}@${index}`}
-                            item={item}
-                        />
-                    </>
+                    <OverviewItem
+                        key={`${item.classId}@${index}`}
+                        item={item}
+                    />
                 ))}
                 <div
                     className={styles.horizontalSeparator}
@@ -170,12 +168,10 @@ export default function OverviewContainer() {
                     </div>
                 </div>
                 {filteredList_nonPathology.map((item, index) => (
-                    <>
-                        <OverviewItem
-                            key={`${item.classId}@${index}`}
-                            item={item}
-                        />
-                    </>
+                    <OverviewItem
+                        key={`${item.classId}@${index}`}
+                        item={item}
+                    />
                 ))}
             </div>
         </div>

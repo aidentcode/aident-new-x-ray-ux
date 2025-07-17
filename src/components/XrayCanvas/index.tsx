@@ -39,7 +39,7 @@ export default function XrayCanvas() {
         handleWidth: true,
         skipOnMount: false,
         refreshMode: "debounce",
-        refreshRate: 500,
+        refreshRate: 250,
     });
     const canvasContainerRef = canvasResizeDetector.ref;
     const {
@@ -47,7 +47,7 @@ export default function XrayCanvas() {
         canvas,
         initEditor,
         initCanvasBehavior,
-        //restoreCanvasZoom,
+        restoreCanvasZoom,
         onReady,
     } = useEditor();
 
@@ -55,27 +55,6 @@ export default function XrayCanvas() {
         handleKeyDown(e as KeyboardEvent, xrayContext)
     );
     useEventListener("keyup", (e) => handleKeyUp(e as KeyboardEvent));
-
-    useEffect(() => {
-        if (
-            canvas &&
-            canvasResizeDetector.width &&
-            canvasResizeDetector.height
-        ) {
-            console.log("resize canvas");
-            canvas.setDimensions({
-                width: canvasResizeDetector.width,
-                height: canvasResizeDetector.height,
-            });
-            handleResize(canvas);
-            //restoreCanvasZoom(canvas);
-        }
-    }, [
-        canvas,
-        //restoreCanvasZoom,
-        canvasResizeDetector.width,
-        canvasResizeDetector.height,
-    ]);
 
     const updateData: T_shapeUpdateData | undefined = useMemo(() => {
         if (!canvas) return undefined;
@@ -88,6 +67,45 @@ export default function XrayCanvas() {
     if (updateData) {
         setShapeUpdateData(updateData);
     }
+    useEffect(() => {
+        if (
+            canvas &&
+            canvasResizeDetector.width &&
+            canvasResizeDetector.height
+        ) {
+            const originalCanvasWidth = canvas.width;
+            const originalCanvasHeight = canvas.height;
+            let changedFlag = false;
+            if (
+                originalCanvasWidth !== canvasResizeDetector.width ||
+                originalCanvasHeight !== canvasResizeDetector.height
+            ) {
+                changedFlag = true;
+            }
+            // console.log("resize canvas", changedFlag);
+
+            canvas.setDimensions({
+                width: canvasResizeDetector.width,
+                height: canvasResizeDetector.height,
+            });
+
+            handleResize(canvas);
+            if (conditions && conditions.length && changedFlag) {
+                conditions.forEach((condition) => {
+                    FabricObjectMap[condition.id] = 0;
+                });
+                setConditions([]);
+                //restoreCanvasZoom(canvas);
+            }
+        }
+    }, [
+        canvas,
+        //restoreCanvasZoom,
+        canvasResizeDetector.width,
+        canvasResizeDetector.height,
+        conditions,
+        setConditions,
+    ]);
 
     useEffect(() => {
         if (!editor || !updateData || !!originalState) return;
@@ -129,7 +147,7 @@ export default function XrayCanvas() {
             setIsErrorModalOpen(true);
         } else {
             if (!conditions || !conditions.length) {
-                // console.log("draw overlays");
+                //console.log("draw overlays");
                 drawOverlays(updateData, (overlayData) => {
                     // console.log("overlayData", overlayData);
                     const conditions = inferenceToConditions(

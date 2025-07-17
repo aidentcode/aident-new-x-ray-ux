@@ -35,6 +35,14 @@ export const adjustBackgroundToAspectRatio = (
 export const getBgImgDimensions = (canvas: Canvas) => {
     const canvasAR = canvas.width / canvas.height;
     const bgImg = getItemByName(canvas, "xrayImgBackground") as FabricImage;
+    console.log("bgImg", bgImg);
+    if (!bgImg)
+        return {
+            bgTop: 0,
+            bgLeft: 0,
+            bgWidth: canvas.width,
+            bgHeight: canvas.height,
+        };
     const bgImgAR = bgImg.width / bgImg.height;
 
     let bgLeft = 0,

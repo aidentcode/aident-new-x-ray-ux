@@ -58,6 +58,7 @@ export const drawOverlays = (
 
     removeAllObjects(canvas, ["xrayImgBackground"]);
 
+    const { image_height, image_width } = inferenceResponse;
     const { bbox, class_ids, masks, distances } = inferenceResponse.result;
 
     const bgImgObj = getItemByName(canvas, "xrayImgBackground") as FabricImage;
@@ -65,6 +66,10 @@ export const drawOverlays = (
 
     const { bgLeft, bgTop, bgWidth, bgHeight } = getBgImgDimensions(canvas);
     const classData = xrayType === E_xrayType.rvg ? classDataRVG : classDataOPG;
+
+    const scaleFactorX = canvas.width / image_width;
+    const scaleFactorY = canvas.height / image_height;
+    console.log("scaleFactorX=", scaleFactorX);
 
     // --- Tooth overlay-------
     bbox.forEach((rectPoints, index) => {
@@ -75,10 +80,10 @@ export const drawOverlays = (
             addRectangle(
                 canvas,
                 {
-                    x1: x1 + bgLeft,
-                    y1: y1 + bgTop,
-                    x2: x2 + bgLeft,
-                    y2: y2 + bgTop,
+                    x1: x1 * scaleFactorX + bgLeft,
+                    y1: y1 * scaleFactorY + bgTop,
+                    x2: x2 * scaleFactorX + bgLeft,
+                    y2: y2 * scaleFactorY + bgTop,
                     classId,
                     index,
                     colorCode,
@@ -106,10 +111,14 @@ export const drawOverlays = (
             addRectangle(
                 canvas,
                 {
-                    x1: x1 + bgLeft,
-                    y1: y1 + bgTop,
-                    x2: x2 + bgLeft,
-                    y2: y2 + bgTop,
+                    // x1: x1 * scaleFactorX + bgLeft,
+                    // y1: y1 * scaleFactorY + bgTop,
+                    // x2: x2 * scaleFactorX + bgLeft,
+                    // y2: y2 * scaleFactorY + bgTop,
+                    x1: x1,
+                    y1: y1,
+                    x2: x2,
+                    y2: y2,
                     classId,
                     index,
                     colorCode,
@@ -215,6 +224,7 @@ export const addRectangle = (
             top: y1,
             boundingWidth,
             boundingHeight,
+            xrayContext,
         });
         mask = smoothedPath;
         if (mask) groupItems.push(mask);

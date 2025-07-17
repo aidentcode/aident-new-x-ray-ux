@@ -81,7 +81,6 @@ export const classDataOPG: Record<string, T_xrayClassData> = {
                 link: "https://youtu.be/3SQfECJ-HDw",
             },
         ],
-        showArea: true,
         conditionType: E_conditionType.pathological,
     },
     [E_opgClassId.braces]: {
@@ -131,21 +130,21 @@ export const classDataOPG: Record<string, T_xrayClassData> = {
         showArea: true,
         conditionType: E_conditionType.pathological,
     },
-    [E_opgClassId.caries2]: {
-        classId: E_opgClassId.caries2,
-        label: "Caries",
-        colorCode: E_colorCode.blue,
-        description:
-            "Tooth caries is a common dental condition which can directly lead to pain,gum infection and tooth loss and severe decay can affect your nutrition intake as well.",
-        treatmentVideos: [
-            {
-                id: "_oIlv59bTL4",
-                type: "youtube",
-                link: "https://youtu.be/_oIlv59bTL4",
-            },
-        ],
-        conditionType: E_conditionType.pathological,
-    },
+    // [E_opgClassId.caries2]: {
+    //     classId: E_opgClassId.caries2,
+    //     label: "Caries",
+    //     colorCode: E_colorCode.blue,
+    //     description:
+    //         "Tooth caries is a common dental condition which can directly lead to pain,gum infection and tooth loss and severe decay can affect your nutrition intake as well.",
+    //     treatmentVideos: [
+    //         {
+    //             id: "_oIlv59bTL4",
+    //             type: "youtube",
+    //             link: "https://youtu.be/_oIlv59bTL4",
+    //         },
+    //     ],
+    //     conditionType: E_conditionType.pathological,
+    // },
     [E_opgClassId.crown]: {
         classId: E_opgClassId.crown,
         label: "Crown",
@@ -269,6 +268,21 @@ export const classDataOPG: Record<string, T_xrayClassData> = {
                 link: "https://youtu.be/uQIr0EWl-m4",
             },
         ],
+        conditionType: E_conditionType["non-pathological"],
+    },
+    [E_opgClassId.pulp]: {
+        classId: E_opgClassId.pulp,
+        label: "Pulp",
+        colorCode: E_colorCode.peach,
+        description: "Pulp",
+        treatmentVideos: [
+            {
+                id: "AATnG9BdIMg",
+                type: "youtube",
+                link: "https://youtu.be/AATnG9BdIMg",
+            },
+        ],
+        isHidden: true,
         conditionType: E_conditionType["non-pathological"],
     },
     [E_opgClassId.rootCanal]: {

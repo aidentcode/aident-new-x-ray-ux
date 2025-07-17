@@ -153,6 +153,7 @@ export const addDistanceLine = (
     });
     group.set({
         name: groupName,
+        selectable: false,
     });
     group.on("mouseover", () => {
         // console.log("mouseover");

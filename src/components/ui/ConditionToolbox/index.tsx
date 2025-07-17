@@ -1,4 +1,4 @@
-import { E_xrayType } from "@/lib/enums";
+import { E_conditionMetricId, E_xrayType } from "@/lib/enums";
 import CustomSvgIcon from "../CustomSvgIcon";
 import styles from "./conditionToolbox.module.scss";
 import ColorIndicator from "../ColorIndicator";
@@ -8,6 +8,10 @@ import { classDataRVG } from "@/lib/data/classDataRVG";
 import { classDataOPG } from "@/lib/data/classDataOPG";
 import { decodeName } from "@/lib/canvas/canvas-utils";
 import { rejectCondition, toggleHidden } from "@/lib/canvas/condition-utils";
+import { T_condition, T_conditionMetric } from "@/lib/types/types";
+import { roundForDisplay } from "@/lib/utils";
+import clsx from "clsx";
+import { computeConditionMetrics } from "@/lib/data/inference-to-conditions";
 
 export default function ConditionToolbox() {
     const xrayContext = useContext(XrayContext);
@@ -34,6 +38,9 @@ export default function ConditionToolbox() {
     };
 
     if (!selectedCondition) return null;
+
+    //console.log("selectedCondition = ", selectedCondition);
+    const metrics = computeConditionMetrics(selectedCondition);
 
     return (
         <div className={styles.container}>
@@ -64,14 +71,25 @@ export default function ConditionToolbox() {
                 </div>
             </div>
             <div className={styles["content-container"]}>
-                <div className={styles["content-item"]}>
-                    <div className={styles["field"]}>Metric name 1</div>
-                    <div className={styles["value"]}>89%</div>
-                </div>
-                <div className={styles["content-item"]}>
-                    <div className={styles["field"]}>Metric name 2</div>
-                    <div className={styles["value"]}>3mm</div>
-                </div>
+                {metrics.map((metric) => (
+                    <div
+                        key={metric.id}
+                        className={clsx([
+                            styles["content-item"],
+                            styles[metric.id],
+                        ])}
+                    >
+                        <div className={styles["field"]}>{metric.label}</div>
+                        <div className={styles["value"]}>{metric.value}</div>
+                    </div>
+                ))}
+                {metrics.length === 0 && (
+                    <div className={styles["content-item"]}>
+                        <div className={styles["field"]}>
+                            No metrics to display
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

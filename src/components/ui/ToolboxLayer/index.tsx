@@ -11,6 +11,7 @@ import RotateToolbox from "../RotateToolbox";
 import ConditionToolbox from "../ConditionToolbox";
 import ToothToolbox from "../ToothToolbox";
 import { decodeName } from "@/lib/canvas/canvas-utils";
+import SmoothCurveSwitch from "../SmoothCurveSwitch";
 
 type ToolboxLayerProps = {
     updateData?: T_shapeUpdateData;
@@ -103,8 +104,9 @@ export default function ToolboxLayer({ updateData }: ToolboxLayerProps) {
                     onClickCallback={handleToolboxClick}
                 />
             </div>
-            <div className={styles.leftBottom} style={{ display: "none" }}>
-                <ZoomToolbox disabled={!imageSetup} />
+            <div className={styles.leftBottom}>
+                {/* <ZoomToolbox disabled={!imageSetup} /> */}
+                <SmoothCurveSwitch disabled={!imageSetup} />
             </div>
             <div className={styles.bottom}>
                 {editMode === "rotate" && updateData && (

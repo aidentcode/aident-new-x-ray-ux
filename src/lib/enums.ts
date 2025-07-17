@@ -91,15 +91,16 @@ export enum E_opgClassId {
     "braces" = "4",
     "calculus" = "5",
     "caries" = "6",
-    "caries2" = "7",
-    "crown" = "8",
-    "cyst" = "9",
-    "filling" = "10",
-    "fractureLine" = "11",
-    "furcation" = "12",
-    "impacted" = "13",
-    "implant" = "14",
-    "nerve" = "15",
+    //"caries2" = "7",
+    "crown" = "7",
+    "cyst" = "8",
+    "filling" = "9",
+    "fractureLine" = "10",
+    "furcation" = "11",
+    "impacted" = "12",
+    "implant" = "13",
+    "nerve" = "14",
+    "pulp" = "15",
     "rootCanal" = "16",
     "rootPiece" = "17",
     "sinus" = "18",
@@ -136,6 +137,12 @@ export enum E_conditionStatus {
     "pending" = "pending",
     "rejected" = "rejected",
     "accepted" = "accepted",
+}
+export enum E_conditionMetricId {
+    "area" = "area",
+    "criticalTimeline" = "criticalTimeline",
+    "criticalDistance" = "criticalDistance",
+    "unknown" = "",
 }
 
 export enum E_tooth3dId {

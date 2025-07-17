@@ -46,6 +46,7 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             },
         ],
         conditionType: E_conditionType.pathological,
+        showArea: true,
     },
     [E_rvgClassId.attrition]: {
         classId: E_rvgClassId.attrition,
@@ -61,6 +62,7 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             },
         ],
         conditionType: E_conditionType.pathological,
+        showArea: true,
     },
     [E_rvgClassId.boneLoss]: {
         classId: E_rvgClassId.boneLoss,
@@ -154,6 +156,7 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             },
         ],
         conditionType: E_conditionType.pathological,
+        showArea: true,
     },
     [E_rvgClassId.filling]: {
         classId: E_rvgClassId.filling,
@@ -201,6 +204,7 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             },
         ],
         conditionType: E_conditionType.pathological,
+        showArea: true,
     },
     [E_rvgClassId.impacted]: {
         classId: E_rvgClassId.impacted,
