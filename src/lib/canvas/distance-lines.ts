@@ -32,7 +32,9 @@ export const addDistanceLinesAsync = (
         let count = 0;
         distances.forEach((distanceData, index) => {
             const classId = class_ids[index];
-            const color = getColorFromCodeCode(classData[classId].colorCode);
+            const color = getColorFromCodeCode(
+                classData[classId].colorCode
+            ) as string;
             if (distanceData && distanceData.length) {
                 addDistanceLine(
                     canvas,
@@ -90,7 +92,9 @@ export const addDistanceLines = (
     let count = 0;
     distances.forEach((distanceData, index) => {
         const classId = class_ids[index];
-        const color = getColorFromCodeCode(classData[classId].colorCode);
+        const color = getColorFromCodeCode(
+            classData[classId].colorCode
+        ) as string;
         if (distanceData && distanceData.length) {
             addDistanceLine(
                 canvas,

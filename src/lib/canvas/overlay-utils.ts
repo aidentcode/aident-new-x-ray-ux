@@ -195,7 +195,7 @@ export const addOverlay = (
 
     const { xrayType, setSelectedConditionId, setTabId } = xrayContext;
 
-    const color = getColorFromCodeCode(colorCode);
+    const color = getColorFromCodeCode(colorCode) as string;
 
     const strokeWidth = 0.5;
 
@@ -244,7 +244,9 @@ export const addOverlay = (
             classLabel,
             backgroundColor: color,
             textColor: classData[classId].textColorCode
-                ? getColorFromCodeCode(classData[classId].textColorCode)
+                ? (getColorFromCodeCode(
+                      classData[classId].textColorCode
+                  ) as string)
                 : undefined,
             top: y1 + strokeWidth - 1 + 0.25 * height,
             left: x1 + strokeWidth - 1 + 0.25 * width,
@@ -294,7 +296,7 @@ export const addOverlay = (
         const name = target.get("name");
         const { classId } = decodeName(name);
         const classDataItem = classData[classId];
-        const color = getColorFromCodeCode(classDataItem.colorCode);
+        const color = getColorFromCodeCode(classDataItem.colorCode) as string;
         const t1 = hexToRgba(color, 0.6);
         const rgbaColorString1 = `rgba(${t1.r}, ${t1.g}, ${t1.b}, ${t1.a})`;
         if (mask) {
@@ -320,7 +322,7 @@ export const addOverlay = (
         const name = target.get("name");
         const { classId } = decodeName(name);
         const classDataItem = classData[classId];
-        const color = getColorFromCodeCode(classDataItem.colorCode);
+        const color = getColorFromCodeCode(classDataItem.colorCode) as string;
         const t1 = hexToRgba(color, 0.25);
         const rgbaColorString1 = `rgba(${t1.r}, ${t1.g}, ${t1.b}, ${t1.a})`;
 
@@ -400,7 +402,7 @@ export const addOverlayAsync = async (
 
         const { xrayType, setSelectedConditionId, setTabId } = xrayContext;
 
-        const color = getColorFromCodeCode(colorCode);
+        const color = getColorFromCodeCode(colorCode) as string;
 
         const strokeWidth = 0.5;
 
@@ -453,7 +455,9 @@ export const addOverlayAsync = async (
                 classLabel,
                 backgroundColor: color,
                 textColor: classData[classId].textColorCode
-                    ? getColorFromCodeCode(classData[classId].textColorCode)
+                    ? (getColorFromCodeCode(
+                          classData[classId].textColorCode
+                      ) as string)
                     : undefined,
                 top: y1 + strokeWidth - 1 + 0.25 * height,
                 left: x1 + strokeWidth - 1 + 0.25 * width,
@@ -503,7 +507,9 @@ export const addOverlayAsync = async (
             const name = target.get("name");
             const { classId } = decodeName(name);
             const classDataItem = classData[classId];
-            const color = getColorFromCodeCode(classDataItem.colorCode);
+            const color = getColorFromCodeCode(
+                classDataItem.colorCode
+            ) as string;
             const t1 = hexToRgba(color, 0.6);
             const rgbaColorString1 = `rgba(${t1.r}, ${t1.g}, ${t1.b}, ${t1.a})`;
             if (mask) {
@@ -529,7 +535,9 @@ export const addOverlayAsync = async (
             const name = target.get("name");
             const { classId } = decodeName(name);
             const classDataItem = classData[classId];
-            const color = getColorFromCodeCode(classDataItem.colorCode);
+            const color = getColorFromCodeCode(
+                classDataItem.colorCode
+            ) as string;
             const t1 = hexToRgba(color, 0.25);
             const rgbaColorString1 = `rgba(${t1.r}, ${t1.g}, ${t1.b}, ${t1.a})`;
 
