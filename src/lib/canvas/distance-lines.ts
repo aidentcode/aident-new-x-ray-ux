@@ -10,6 +10,65 @@ import { E_opgClassId, E_rvgClassId } from "../enums";
 import { getColorFromCodeCode, hexToRgba } from "../data/colorData";
 import { hexToRgb } from "@mui/material";
 
+export const addDistanceLinesAsync = (
+    data: {
+        canvas: Canvas;
+        distances: Array<T_distanceData | null>;
+        class_ids: number[];
+        classData: Record<string, T_xrayClassData>;
+        bgImgObj: FabricImage;
+        toothOverlayData?: T_overlayFabricData[];
+    }
+    //callback: (distanceOverlays: T_overlayFabricData[]) => void
+): Promise<T_overlayFabricData[]> => {
+    return new Promise((resolve, reject) => {
+        const { canvas, distances, class_ids, classData, bgImgObj } = data;
+
+        const distanceOverlays: T_overlayFabricData[] = [];
+        if (!distances || !distances.length) {
+            resolve(distanceOverlays);
+            return;
+        }
+        let count = 0;
+        distances.forEach((distanceData, index) => {
+            const classId = class_ids[index];
+            const color = getColorFromCodeCode(classData[classId].colorCode);
+            if (distanceData && distanceData.length) {
+                addDistanceLine(
+                    canvas,
+                    {
+                        lineData: distanceData2LineData(distanceData),
+                        unit: "mm",
+                        classId: classId.toString(),
+                        index,
+                        color,
+                        bgImgObj,
+                        classData,
+                    },
+                    (eventPayload) => {
+                        count++;
+                        distanceOverlays.push(eventPayload);
+                        if (count === distances.length) {
+                            resolve(distanceOverlays);
+                        }
+                        // if (callback && count === distances.length) {
+                        //     callback(distanceOverlays);
+                        // }
+                    }
+                );
+            } else {
+                count++;
+                if (count === distances.length) {
+                    resolve(distanceOverlays);
+                }
+                // if (callback && count === distances.length) {
+                //     callback(distanceOverlays);
+                // }
+            }
+        });
+    });
+};
+
 export const addDistanceLines = (
     data: {
         canvas: Canvas;
@@ -17,6 +76,7 @@ export const addDistanceLines = (
         class_ids: number[];
         classData: Record<string, T_xrayClassData>;
         bgImgObj: FabricImage;
+        toothOverlayData?: T_overlayFabricData[];
     },
     callback: (distanceOverlays: T_overlayFabricData[]) => void
 ) => {

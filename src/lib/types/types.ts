@@ -1,3 +1,4 @@
+import paper from "paper";
 import { Canvas } from "fabric";
 import {
     E_colorCode,
@@ -21,6 +22,9 @@ export type T_overlayFabricData = {
     measurement?: number;
     clippedImageSrc?: string;
     clippedImageSrc2?: string;
+    parentOverlayName?: string;
+    parentOverlayIndex?: number;
+    maskPaperPath?: paper.Path;
 };
 
 export type T_condition = T_xrayClassData & {
@@ -33,6 +37,7 @@ export type T_condition = T_xrayClassData & {
     clippedImageSrc?: string;
     clippedImageSrc2?: string;
     criticalTimeline?: string;
+    parentOverlayName?: string;
 };
 export type T_conditionMetric = {
     id: string;

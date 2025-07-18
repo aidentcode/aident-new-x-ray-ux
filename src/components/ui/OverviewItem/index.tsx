@@ -12,7 +12,15 @@ import {
 import { E_conditionStatus, E_opgClassId } from "@/lib/enums";
 import { E_rvgClassId } from "@/lib/enums";
 
-export default function OverviewItem({ item }: { item: T_overviewItem }) {
+export default function OverviewItem({
+    item,
+    hideVisibilityIcon,
+    hideDeleteIcon,
+}: {
+    item: T_overviewItem;
+    hideVisibilityIcon?: boolean;
+    hideDeleteIcon?: boolean;
+}) {
     const xrayContext = useContext(XrayContext);
 
     const { label, colorCode, items, isHidden } = item;
@@ -51,14 +59,20 @@ export default function OverviewItem({ item }: { item: T_overviewItem }) {
             ])}
         >
             <div className={styles.left}>
-                <CustomSvgIcon
-                    iconId={isHidden ? "visibility-off" : "visibility-on"}
-                    className={"size24"}
-                    onClickCallback={handleToggleHidden}
-                    tooltipText={`Toggle visibility of all "${label}"`}
-                    tooltipPlacement="top"
-                />
-                <div className={styles["vertical-divider"]} />
+                {!hideVisibilityIcon && (
+                    <>
+                        <CustomSvgIcon
+                            iconId={
+                                isHidden ? "visibility-off" : "visibility-on"
+                            }
+                            className={"size24"}
+                            onClickCallback={handleToggleHidden}
+                            tooltipText={`Toggle visibility of all "${label}"`}
+                            tooltipPlacement="top"
+                        />
+                        <div className={styles["vertical-divider"]} />
+                    </>
+                )}
                 <div className={styles.text}>{label || "--"}</div>
             </div>
             <div className={styles.right}>
@@ -67,14 +81,18 @@ export default function OverviewItem({ item }: { item: T_overviewItem }) {
                     displayType={"number"}
                     number={number}
                 />
-                <div className={styles["vertical-divider"]} />
-                <CustomSvgIcon
-                    iconId="delete2"
-                    className={"size24"}
-                    onClickCallback={handleRejectAll}
-                    tooltipText={`Reject all "${label}"`}
-                    tooltipPlacement="top"
-                />
+                {!hideDeleteIcon && (
+                    <>
+                        <div className={styles["vertical-divider"]} />
+                        <CustomSvgIcon
+                            iconId="delete2"
+                            className={"size24"}
+                            onClickCallback={handleRejectAll}
+                            tooltipText={`Reject all "${label}"`}
+                            tooltipPlacement="top"
+                        />
+                    </>
+                )}
             </div>
         </div>
     );

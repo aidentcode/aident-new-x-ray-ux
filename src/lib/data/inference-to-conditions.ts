@@ -32,6 +32,7 @@ export const inferenceToConditions = (
             clippedImageSrc,
             clippedImageSrc2,
             measurement,
+            parentOverlayName,
         } = overlay;
 
         let label = classData[classId].label || "";
@@ -68,6 +69,7 @@ export const inferenceToConditions = (
             clippedImageSrc,
             clippedImageSrc2,
             status: E_conditionStatus.pending,
+            parentOverlayName,
         });
     });
 

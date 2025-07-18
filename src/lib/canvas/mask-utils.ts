@@ -82,7 +82,7 @@ export const createMask = (canvas: Canvas, data: T_createMaskData) => {
         strokeWidth: 2,
     });
 
-    return { polygon, smoothedPath };
+    return { polygon, smoothedPath, paperPath };
 };
 
 export const checkDefaultVisibility = (

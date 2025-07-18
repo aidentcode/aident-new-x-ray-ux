@@ -141,7 +141,7 @@ function XrayProvider({ children }: XrayProviderProps) {
     const [toothMaterial, setToothMaterial] = useState<"wireframe" | "solid">(
         "wireframe"
     );
-    const [smoothCurves, setSmoothCurves] = useState(false);
+    const [smoothCurves, setSmoothCurves] = useState(defaultValue.smoothCurves);
     const xrayData: T_xrayContext = {
         tabId,
         setTabId,

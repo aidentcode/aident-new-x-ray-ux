@@ -12,7 +12,11 @@ import { validateInferenceResult } from "@/lib/data/validate-inference";
 import ErrorModal from "../modals/ErrorModal";
 import { handleResize, prepareCanvasForAPI } from "@/lib/canvas/canvas-utils";
 import { initialiseBackgroundImage } from "@/lib/canvas/bg-utils";
-import { drawOverlays, updateOverlays } from "@/lib/canvas/overlay-utils";
+import {
+    //drawOverlays,
+    drawOverlaysAsync,
+    updateOverlays,
+} from "@/lib/canvas/overlay-utils";
 import { inferenceToConditions } from "@/lib/data/inference-to-conditions";
 import { updateOverviews } from "@/lib/data/inference-to-overview";
 import useEventListener from "@use-it/event-listener";
@@ -148,7 +152,7 @@ export default function XrayCanvas() {
         } else {
             if (!conditions || !conditions.length) {
                 //console.log("draw overlays");
-                drawOverlays(updateData, (overlayData) => {
+                drawOverlaysAsync(updateData, (overlayData) => {
                     // console.log("overlayData", overlayData);
                     const conditions = inferenceToConditions(
                         overlayData,

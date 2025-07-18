@@ -12,6 +12,7 @@ import {
     Typography,
 } from "@mui/material";
 import XrayContext from "@/contexts/xrayContext";
+import { FabricObjectMap } from "@/lib/init/globalVars";
 
 const AntSwitch = styled(Switch)(({ theme }: { theme: Theme }) => ({
     width: 28,
@@ -68,7 +69,13 @@ export default function SmoothCurveSwitch({
 }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const xrayContext = useContext(XrayContext);
-    const { smoothCurves, setSmoothCurves } = xrayContext;
+    const {
+        smoothCurves,
+        setSmoothCurves,
+        imageSetup,
+        conditions,
+        setConditions,
+    } = xrayContext;
 
     return (
         <Draggable
@@ -92,7 +99,7 @@ export default function SmoothCurveSwitch({
                     <CustomSvgIcon iconId="drag" tooltipText="Drag to move" />
                 </div>
                 <div className={styles.verticalDivider}></div>
-                <FormGroup>
+                <FormGroup style={{ opacity: !imageSetup ? 0.5 : 1.0 }}>
                     <Stack
                         direction="row"
                         spacing={1}
@@ -102,14 +109,19 @@ export default function SmoothCurveSwitch({
                             defaultChecked
                             inputProps={{ "aria-label": "ant design" }}
                             onChange={() => {
+                                conditions.forEach((condition) => {
+                                    FabricObjectMap[condition.id] = 0;
+                                });
+                                setConditions([]);
                                 setSmoothCurves(!smoothCurves);
                             }}
                             value={smoothCurves}
+                            disabled={!imageSetup}
                         />
                         <div
                             className={clsx([
                                 styles.switchText,
-                                !smoothCurves && styles.disabledText,
+                                !!smoothCurves && styles.disabledText,
                             ])}
                         >
                             Smooth curves
