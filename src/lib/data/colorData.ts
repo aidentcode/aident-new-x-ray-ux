@@ -2,8 +2,11 @@ import { HSLColor, RGBColor } from "react-color";
 import { E_colorCode } from "../enums";
 import { clamp } from "../utils";
 
-export const getColorFromCodeCode = (colorCode: E_colorCode) => {
-    const colorHash: Record<E_colorCode, string> = {
+export const getColorFromCodeCode = (
+    colorCode: E_colorCode,
+    format: "#" | "0x" = "#"
+) => {
+    const colorHash1: Record<E_colorCode, string> = {
         [E_colorCode.red]: "#ff3131",
         [E_colorCode.orange]: "#ff9000",
         [E_colorCode.yellow]: "#ffeb81",
@@ -26,7 +29,36 @@ export const getColorFromCodeCode = (colorCode: E_colorCode) => {
         [E_colorCode.magenta]: "#ff00ff",
         [E_colorCode.gray]: "#5d5d5d",
     };
-    return colorHash[colorCode];
+
+    const colorHash2: Record<E_colorCode, number> = {
+        [E_colorCode.red]: 0xff3131,
+        [E_colorCode.orange]: 0xff9000,
+        [E_colorCode.yellow]: 0xffeb81,
+        [E_colorCode.lightGreen]: 0x64d264,
+        [E_colorCode.green]: 0x037c2b,
+        [E_colorCode.darkGreen]: 0x026363,
+        [E_colorCode.teal]: 0x1edac8,
+        [E_colorCode.lightBlue]: 0x47a6c5,
+        [E_colorCode.blue]: 0x2f2fe1,
+        [E_colorCode.pink]: 0xb707b7,
+        [E_colorCode.purple]: 0x9999ff,
+        [E_colorCode.peach]: 0xff92a5,
+        [E_colorCode.white]: 0xffffff,
+        [E_colorCode.black]: 0x000000,
+        [E_colorCode.brown]: 0xb53232,
+        [E_colorCode.lightBrown]: 0xffaf00,
+        [E_colorCode.gold]: 0xab572c,
+        [E_colorCode.lemon]: 0xa2c861,
+        [E_colorCode.maroon]: 0xa31545,
+        [E_colorCode.magenta]: 0xff00ff,
+        [E_colorCode.gray]: 0x5d5d5d,
+    };
+
+    if (format === "0x") {
+        return colorHash2[colorCode];
+    } else {
+        return colorHash1[colorCode];
+    }
 };
 
 export function addTransparencyIfOpaque(rgbaString: string) {

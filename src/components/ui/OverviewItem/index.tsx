@@ -16,10 +16,12 @@ export default function OverviewItem({
     item,
     hideVisibilityIcon,
     hideDeleteIcon,
+    hideNumber,
 }: {
     item: T_overviewItem;
     hideVisibilityIcon?: boolean;
     hideDeleteIcon?: boolean;
+    hideNumber?: boolean;
 }) {
     const xrayContext = useContext(XrayContext);
 
@@ -76,11 +78,13 @@ export default function OverviewItem({
                 <div className={styles.text}>{label || "--"}</div>
             </div>
             <div className={styles.right}>
-                <ColorIndicator
-                    colorCode={colorCode}
-                    displayType={"number"}
-                    number={number}
-                />
+                {!hideNumber && (
+                    <ColorIndicator
+                        colorCode={colorCode}
+                        displayType={"number"}
+                        number={number}
+                    />
+                )}
                 {!hideDeleteIcon && (
                     <>
                         <div className={styles["vertical-divider"]} />

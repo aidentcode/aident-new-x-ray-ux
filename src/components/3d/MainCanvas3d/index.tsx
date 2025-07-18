@@ -7,14 +7,27 @@ import DirectionalLights from "../DirectionalLights.tsx";
 
 import { Canvas, ObjectMap, useFrame, useLoader } from "@react-three/fiber";
 import { PerspectiveCamera, Stats, ArcballControls } from "@react-three/drei";
-import { Euler, Group, Mesh, Vector3 } from "three";
+import {
+    Euler,
+    Group,
+    Mesh,
+    Vector3,
+    Box3,
+    SphereGeometry,
+    MeshBasicMaterial,
+    Shape,
+    ExtrudeGeometry,
+    MeshPhongMaterial,
+} from "three";
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 //import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import GizmoArcball from "../GizmoArcball";
 import MaterialSwitch from "@/components/ui/MaterialSwitch";
 import { getTeethModelData } from "@/lib/data/teethModelData";
-import { E_tooth3dId, E_tooth3dPosition } from "@/lib/enums";
+import { E_colorCode, E_tooth3dId, E_tooth3dPosition } from "@/lib/enums";
 import WaitMsg from "@/components/ui/WaitMsg";
+import { T_condition, T_point2D } from "@/lib/types/types";
+import { getColorFromCodeCode } from "@/lib/data/colorData";
 
 export const CAM_HEIGHT = 6,
     ORTHOCAM_DEFAULT_ZOOM = 20.96298075970983;
@@ -125,14 +138,102 @@ export default function MainCanvas3d() {
     );
 }
 
+// Function to create 3D shape from condition mask points
+function createConditionShape(condition: T_condition, centerPosition: Vector3) {
+    const conditionMaskPoints: T_point2D[] = condition.masks;
+
+    if (!conditionMaskPoints || conditionMaskPoints.length === 0) {
+        return null;
+    }
+
+    try {
+        // Create a shape from the mask points
+        const shape = new Shape();
+
+        // Convert mask points to shape vertices
+        // Assuming conditionMaskPoints contains x,y coordinates
+        const points = conditionMaskPoints.map((point: T_point2D) => {
+            // Normalize points relative to center and scale them appropriately
+            const x = (point[0] || 0) * 1.0; // Scale down for visibility
+            const y = (point[1] || 0) * 1.0;
+            return { x, y };
+        });
+
+        if (points.length > 0) {
+            // Start the shape path
+            shape.moveTo(points[0].x, points[0].y);
+
+            // Add line segments to complete the shape
+            for (let i = 1; i < points.length; i++) {
+                shape.lineTo(points[i].x, points[i].y);
+            }
+
+            // Close the shape
+            shape.lineTo(points[0].x, points[0].y);
+        }
+
+        // Create extrude settings with bevels
+        const extrudeSettings = {
+            depth: 0.125, // Extrusion depth
+            bevelEnabled: false,
+            // bevelThickness: 0.1, // Bevel thickness
+            // bevelSize: 0.1, // Bevel size
+            // bevelOffset: 0,
+            // bevelSegments: 3, // Number of bevel segments for smoothness
+        };
+
+        // Create the extruded geometry
+        const geometry = new ExtrudeGeometry(shape, extrudeSettings);
+
+        // Create material with some transparency
+        const colorCode: E_colorCode = condition.colorCode;
+
+        const material = new MeshPhongMaterial({
+            //color: 0xff0000, // Red color
+            color: getColorFromCodeCode(colorCode, "0x"),
+            transparent: true,
+            opacity: 0.7,
+            side: 1,
+            wireframe: false,
+        });
+
+        // Create mesh and position it
+        const mesh = new Mesh(geometry, material);
+        mesh.position.copy(centerPosition);
+
+        return mesh;
+    } catch (error) {
+        console.error("Error creating condition shape:", error);
+        return null;
+    }
+}
+
 function MeshComponent({
     onProgress,
 }: {
     onProgress: (loaded: number, total: number) => void;
 }) {
     const xrayContext = useContext(XrayContext);
-    const { toothMaterial, tooth3dView } = xrayContext;
+    const { toothMaterial, tooth3dView, conditions, selectedConditionId } =
+        xrayContext;
     const toothPosition = tooth3dView?.toothPosition;
+
+    // console.log("conditions=", conditions);
+    // console.log("selectedConditionId=", selectedConditionId);
+
+    const teethConditions = conditions.filter((x) => !x.parentOverlayName);
+    //console.log("teethConditions=", teethConditions);
+
+    const selectedToothId =
+        selectedConditionId ??
+        (teethConditions.length > 0 ? teethConditions[0].id : "");
+    // console.log("selectedToothId=", selectedToothId);
+
+    const relevantConditionsForTooth = conditions.filter(
+        (x) => x.parentOverlayName === selectedToothId
+    );
+    console.log("relevantConditionsForTooth=", relevantConditionsForTooth);
+
     // console.log("toothPosition=", toothPosition);
     let rotation = [0, 0, 0];
     let position = [0, -2, 0];
@@ -162,6 +263,12 @@ function MeshComponent({
     const fileUrl = toothModelData.fileUrl;
 
     const [isLoading, setIsLoading] = useState(true);
+    const [centerPosition, setCenterPosition] = useState<Vector3>(
+        new Vector3(0, 0, 0)
+    );
+    const [boundingBoxSize, setBoundingBoxSize] = useState<Vector3>(
+        new Vector3(1, 1, 1)
+    );
     const meshRef = useRef<Group>(null!);
 
     const wireframeGltf = useLoader(
@@ -191,6 +298,27 @@ function MeshComponent({
         onProgress(100, 100);
     }, [isLoading, wireframeGltf, onProgress]);
 
+    // Calculate bounds and center of the wireframeGltf primitive
+    useEffect(() => {
+        if (wireframeGltf && wireframeGltf.scene) {
+            const box = new Box3().setFromObject(wireframeGltf.scene);
+            const center = box.getCenter(new Vector3());
+            const size = box.getSize(new Vector3());
+            setCenterPosition(center);
+            setBoundingBoxSize(size);
+            console.log("Wireframe bounds:", box);
+            console.log("Wireframe center:", center);
+            console.log(
+                "Wireframe dimensions - LengthX:",
+                size.x,
+                "LengthY:",
+                size.y,
+                "LengthZ:",
+                size.z
+            );
+        }
+    }, [wireframeGltf]);
+
     if (toothMaterial === "wireframe") {
         makeMaterialWireframe(wireframeGltf);
     } else {
@@ -200,6 +328,23 @@ function MeshComponent({
     const positionVector = new Vector3(position[0], position[1], position[2]);
     const rotationEuler = new Euler(rotation[0], rotation[1], rotation[2]);
 
+    // const conditionMaskPoints: T_point2D[] =
+    //     relevantConditionsForTooth.length > 0
+    //         ? relevantConditionsForTooth[0].masks
+    //         : [];
+
+    let conditionShapeMeshes: Mesh[] = [];
+    for (const condition of relevantConditionsForTooth) {
+        const conditionShapeMesh = createConditionShape(
+            condition,
+            centerPosition
+        );
+        if (conditionShapeMesh) {
+            conditionShapeMeshes.push(conditionShapeMesh);
+        }
+    }
+    console.log("conditionShapeMeshes=", conditionShapeMeshes);
+
     return (
         <>
             <group
@@ -208,6 +353,27 @@ function MeshComponent({
                 rotation={rotationEuler}
             >
                 <primitive object={wireframeGltf.scene} />
+                {/* Center sphere marker */}
+                <mesh position={centerPosition}>
+                    <sphereGeometry args={[0.05, 16, 16]} />
+                    <meshBasicMaterial color="red" />
+                </mesh>
+                {/* Bounding box wireframe */}
+                <mesh position={centerPosition}>
+                    <boxGeometry
+                        args={[
+                            boundingBoxSize.x,
+                            boundingBoxSize.y,
+                            boundingBoxSize.z,
+                        ]}
+                    />
+                    <meshBasicMaterial color="blue" wireframe={true} />
+                </mesh>
+                {/* Condition shape mesh */}
+                {conditionShapeMeshes &&
+                    conditionShapeMeshes.map((mesh, index) => (
+                        <primitive key={index} object={mesh} />
+                    ))}
             </group>
         </>
     );

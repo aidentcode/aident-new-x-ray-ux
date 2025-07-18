@@ -82,6 +82,7 @@ export default function ToothToolbox() {
                         }}
                         hideVisibilityIcon={true}
                         hideDeleteIcon={true}
+                        hideNumber={true}
                     />
                 ))}
                 {/* <OverviewItem
