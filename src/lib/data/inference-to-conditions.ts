@@ -34,6 +34,11 @@ export const inferenceToConditions = (
             measurement,
             parentOverlayName,
         } = overlay;
+        console.log("overlay.name=", name, name.split("-"));
+        console.log("classId=", classId);
+        console.log("index=", index);
+        const classIndex = parseInt(name.split("-")[2]);
+        console.log("classIndex=", classIndex);
 
         let label = classData[classId].label || "";
         if (name.split("-")[0] === "lineSegment") {
@@ -42,28 +47,50 @@ export const inferenceToConditions = (
             }`;
         }
 
-        const { areas } = result || {};
+        const { areas, distances } = result || {};
         const area =
-            classData[classId].showArea && areas && areas[index]
-                ? areas[index]
+            classData[classId].showArea && areas && areas[classIndex]
+                ? areas[classIndex]
                 : undefined;
         const criticalTimeline = computeCriticalTimeline(
             classData[classId],
             (areas && areas[index]) || 0
         );
 
+        let criticalDistance = "";
+        const distanceData =
+            distances && distances[classIndex]
+                ? distances[classIndex]
+                : undefined;
+        if (distanceData) {
+            console.log("classIndex=", classIndex);
+            console.log("distanceData=", distanceData);
+            console.log(
+                "distanceData2=",
+                distanceData ? distanceData[1] : undefined
+            );
+            console.log("distances=", distances);
+            console.log("criticalDistance=", criticalDistance);
+
+            criticalDistance = computeCriticalDistance(
+                classId,
+                distanceData ? distanceData[1] : undefined
+            );
+        }
+
         conditions.push({
             ...classData[classId],
             label,
             needToDraw: true,
-            bbox: result.bbox[index],
-            masks: result.masks[index],
-            distance: result.distances[index]
-                ? result.distances[index][1]
+            bbox: result.bbox[classIndex],
+            masks: result.masks[classIndex],
+            distance: result.distances[classIndex]
+                ? result.distances[classIndex][1]
                 : null,
             id: overlay.conditionId,
             area,
             criticalTimeline,
+            criticalDistance,
             // status: "pending",
             isHidden: false,
             clippedImageSrc,
@@ -77,6 +104,35 @@ export const inferenceToConditions = (
     // console.log("conditions=", conditions);
 
     return conditions;
+};
+
+const computeCriticalDistance = (
+    classId: E_opgClassId | E_rvgClassId,
+    criticalDistance?: number
+) => {
+    if (!criticalDistance) {
+        return "";
+    }
+    //Currently only caries has critical distance
+    console.log("classId=", classId);
+    if (![E_opgClassId.caries, E_rvgClassId.caries].includes(classId)) {
+        return "";
+    }
+    let distanceMsg = "";
+    if (criticalDistance && criticalDistance < 0.5) {
+        distanceMsg = `Involving pulp (${roundForDisplay(
+            criticalDistance,
+            2
+        )}mm)`;
+    } else if (criticalDistance >= 0.5 || criticalDistance <= 2.9) {
+        distanceMsg = `Advanced (${roundForDisplay(criticalDistance, 2)}mm)`;
+    } else if (criticalDistance >= 3) {
+        distanceMsg = `Initial to Moderate (${roundForDisplay(
+            criticalDistance,
+            2
+        )}mm)`;
+    }
+    return distanceMsg;
 };
 
 const computeCriticalTimeline = (classData: T_xrayClassData, area: number) => {
@@ -149,6 +205,13 @@ export const computeConditionMetrics = (condition: T_condition) => {
             id: E_conditionMetricId.criticalTimeline,
             label: "Critical Timeline",
             value: condition.criticalTimeline,
+        });
+    }
+    if (condition.criticalDistance) {
+        metrics.push({
+            id: E_conditionMetricId.criticalDistance,
+            label: "Critical Distance",
+            value: condition.criticalDistance,
         });
     }
     return metrics;

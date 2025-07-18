@@ -129,10 +129,10 @@ function ConditionList({
         <>
             <div className={styles.title}>
                 <span>Conditions ({conditionCount})</span>
-                {/* <CustomSvgIcon
+                <CustomSvgIcon
                     iconId={"collapseSidebar"}
                     onClickCallback={onToggleSidebar}
-                /> */}
+                />
             </div>
             <div className={styles.tabSwitch}>
                 <TabSwitch

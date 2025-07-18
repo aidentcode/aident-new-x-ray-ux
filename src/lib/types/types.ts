@@ -37,6 +37,7 @@ export type T_condition = T_xrayClassData & {
     clippedImageSrc?: string;
     clippedImageSrc2?: string;
     criticalTimeline?: string;
+    criticalDistance?: string;
     parentOverlayName?: string;
 };
 export type T_conditionMetric = {

@@ -70,8 +70,11 @@ export const drawOverlaysAsync = async (
     const { bgLeft, bgTop, bgWidth, bgHeight } = getBgImgDimensions(canvas);
     const classData = xrayType === E_xrayType.rvg ? classDataRVG : classDataOPG;
 
-    const scaleFactorX = canvas.width / image_width;
-    const scaleFactorY = canvas.height / image_height;
+    // console.log("image_width=", image_width);
+    // console.log("canvas width=", canvas.width, canvas.getWidth());
+    // console.log("bg width=", bgWidth);
+    const scaleFactorX = bgWidth / image_width;
+    const scaleFactorY = bgHeight / image_height;
     // console.log("scaleFactorX=", scaleFactorX);
 
     // --- Tooth overlay-------
@@ -103,7 +106,7 @@ export const drawOverlaysAsync = async (
         }
         index++;
     }
-    console.log("toothOverlayData=", toothOverlayData);
+    // console.log("toothOverlayData=", toothOverlayData);
 
     //---- Condition overlays---------
     index = 0;
@@ -113,10 +116,10 @@ export const drawOverlaysAsync = async (
         if (classId !== E_rvgClassId.tooth) {
             const colorCode = classData[classId].colorCode;
             const result = await addOverlayAsync(canvas, {
-                x1: x1 + bgLeft,
-                y1: y1 + bgTop,
-                x2: x2 + bgLeft,
-                y2: y2 + bgTop,
+                x1: x1 * scaleFactorX + bgLeft,
+                y1: y1 * scaleFactorY + bgTop,
+                x2: x2 * scaleFactorX + bgLeft,
+                y2: y2 * scaleFactorY + bgTop,
                 classId,
                 index,
                 colorCode,
