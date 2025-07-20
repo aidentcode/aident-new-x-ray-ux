@@ -138,7 +138,7 @@ const computeCriticalDistance = (
 const computeCriticalTimeline = (classData: T_xrayClassData, area: number) => {
     const classId = classData.classId as E_opgClassId | E_rvgClassId;
     let criticalTimeline = "";
-    return "Typically, an attrition progresses at rate of 0.98 mm in a year";
+    //return "Typically, an attrition progresses at rate of 0.98 mm in a year";
 
     if ([E_opgClassId.abscess, E_rvgClassId.abscess].includes(classId)) {
         const diameter = Math.round(Math.sqrt(area / 3.14) * 2);
