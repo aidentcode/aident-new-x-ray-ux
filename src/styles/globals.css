@@ -53,7 +53,7 @@
     --color-indicator-gold: #ab572c;
     --color-indicator-lemon: #a2c861;
     --color-indicator-maroon: #a31545;
-    --color-indicator-magenta: #ff00ff;
+    --color-indicator-magenta: #0c070c;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -40,9 +40,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "A tooth abscess is a pocket of pus that's caused by a bacterial infection. A periapical tooth abscess usually occurs as a result of an untreated dental cavity or secondary infection.",
         treatmentVideos: [
             {
-                id: "SGw0DiBv2pk",
+                id: "FERzAH_-3IA",
                 type: "youtube",
-                link: "https://youtu.be/SGw0DiBv2pk",
+                link: "https://youtu.be/FERzAH_-3IA",
             },
         ],
         conditionType: E_conditionType.pathological,
@@ -56,9 +56,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "Tooth attrition happens when two dental surfaces rub against each other and create friction strong enough to destroy the enamel coating.",
         treatmentVideos: [
             {
-                id: "eFWwJEd8KMQ",
+                id: "XjVTfy4PIsw",
                 type: "youtube",
-                link: "https://youtu.be/eFWwJEd8KMQ",
+                link: "https://youtu.be/XjVTfy4PIsw",
             },
         ],
         conditionType: E_conditionType.pathological,
@@ -73,9 +73,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "It happens when the gums and bone surrounding the teeth starts to shrink. Tooth mobility, receding gums,mouth sores, swollen or bleeding gums are the conditions observed with bone loss.",
         treatmentVideos: [
             {
-                id: "3SQfECJ-HDw",
+                id: "x2uN41a3Z1U",
                 type: "youtube",
-                link: "https://youtu.be/3SQfECJ-HDw",
+                link: "https://youtu.be/x2uN41a3Z1U",
             },
         ],
         showArea: true,
@@ -104,9 +104,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "When plaque collects on teeth it hardens into calculus,on your teeth which can lead to serious gum disease, bad breath and bleeding gums.",
         treatmentVideos: [
             {
-                id: "_ZPW2P7qVAY",
+                id: "-TUV4yy0z_Y",
                 type: "youtube",
-                link: "https://youtu.be/_ZPW2P7qVAY",
+                link: "https://youtu.be/-TUV4yy0z_Y",
             },
         ],
         conditionType: E_conditionType.pathological,
@@ -119,9 +119,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "Tooth caries is a common dental condition which can directly lead to pain,gum infection and tooth loss and severe decay can affect your nutrition intake as well.",
         treatmentVideos: [
             {
-                id: "_oIlv59bTL4",
+                id: "DJY3JU_OEQM",
                 type: "youtube",
-                link: "https://youtu.be/_oIlv59bTL4",
+                link: "https://youtu.be/DJY3JU_OEQM",
             },
         ],
         showArea: true,
@@ -135,9 +135,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "A crown is basically a cap for a damaged tooth. It protects your teeth and maintains the strength of the damaged teeth.",
         treatmentVideos: [
             {
-                id: "m4fo7WhRdhY",
+                id: "9gtxiUpnTqc",
                 type: "youtube",
-                link: "https://youtu.be/m4fo7WhRdhY",
+                link: "https://youtu.be/9gtxiUpnTqc",
             },
         ],
         conditionType: E_conditionType["non-pathological"],
@@ -150,9 +150,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "A cyst is a sac like pocket of membranous tissue that contains fluid,air,or other substances.",
         treatmentVideos: [
             {
-                id: "Jx_Ux0Q5n3w",
+                id: "8_cVfsBipLw",
                 type: "youtube",
-                link: "https://youtu.be/Jx_Ux0Q5n3w",
+                link: "https://youtu.be/8_cVfsBipLw",
             },
         ],
         conditionType: E_conditionType.pathological,
@@ -167,9 +167,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "A filling is used to treat a small hole in a tooth.To repair a cavity,a dentist removes the decayed tooth tissue and then fills the space with a filling material.",
         treatmentVideos: [
             {
-                id: "HffVUqfOCsU",
+                id: "DJY3JU_OEQM",
                 type: "youtube",
-                link: "https://youtu.be/HffVUqfOCsU",
+                link: "https://youtu.be/DJY3JU_OEQM",
             },
         ],
         conditionType: E_conditionType["non-pathological"],
@@ -182,9 +182,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "While chewing on hard foods,a tooth can fracture or crack. It is commonly seen in people who grind their teeth at night,play contact sports,or it can occur spontaneously in older adults.",
         treatmentVideos: [
             {
-                id: "CvqOHCHMbCU",
+                id: "IpVoIuKTg2w",
                 type: "youtube",
-                link: "https://youtu.be/CvqOHCHMbCU",
+                link: "https://youtu.be/IpVoIuKTg2w",
             },
         ],
         conditionType: E_conditionType.pathological,
@@ -198,9 +198,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "Bone loss that is specific to branching of a tooth's roots is known as a furcation defect.This leads to periodontal diseases.",
         treatmentVideos: [
             {
-                id: "uiDzZZoWkOI",
+                id: "x2uN41a3Z1U",
                 type: "youtube",
-                link: "https://youtu.be/uiDzZZoWkOI",
+                link: "https://youtu.be/x2uN41a3Z1U",
             },
         ],
         conditionType: E_conditionType.pathological,
@@ -215,9 +215,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "Impacted teeth are mostly in relation to wisdom teeth. Impacted wisdom teeth can result in pain,damage to other teeth, cyst, decay, etc",
         treatmentVideos: [
             {
-                id: "AqVBtKEOSOU",
+                id: "oexyy4xCbrE",
                 type: "youtube",
-                link: "https://youtu.be/AqVBtKEOSOU",
+                link: "https://youtu.be/oexyy4xCbrE",
             },
         ],
         conditionType: E_conditionType.pathological,
@@ -231,9 +231,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "Dental implant is a procedure that replaces tooth roots with metal,screwlike posts and replaces damaged or missing teeth with artificial teeth that look and function much like real one.",
         treatmentVideos: [
             {
-                id: "gMycqoQrlBs",
+                id: "0De-X7ATnwo",
                 type: "youtube",
-                link: "https://youtu.be/gMycqoQrlBs",
+                link: "https://youtu.be/0De-X7ATnwo",
             },
         ],
         conditionType: E_conditionType["non-pathological"],
@@ -262,9 +262,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
         description: "Soft, living tissue located at the center of each tooth",
         treatmentVideos: [
             {
-                id: "AATnG9BdIMg",
+                id: "P8FmnS00mvM",
                 type: "youtube",
-                link: "https://youtu.be/AATnG9BdIMg",
+                link: "https://youtu.be/P8FmnS00mvM",
             },
         ],
         conditionType: E_conditionType["non-pathological"],
@@ -278,9 +278,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "It is done to treat the infected pulp to eliminate the infection and protect the tooth from future microbial invasion.",
         treatmentVideos: [
             {
-                id: "AATnG9BdIMg",
+                id: "P8FmnS00mvM",
                 type: "youtube",
-                link: "https://youtu.be/AATnG9BdIMg",
+                link: "https://youtu.be/P8FmnS00mvM",
             },
         ],
         conditionType: E_conditionType["non-pathological"],
@@ -293,9 +293,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
             "It is the unseen portion that supports and fastens the tooth in the jaw bone. Some can be treated or some require removal.",
         treatmentVideos: [
             {
-                id: "eVHPsaaOsnU",
+                id: "ba9aCADvP98",
                 type: "youtube",
-                link: "https://youtu.be/eVHPsaaOsnU",
+                link: "https://youtu.be/ba9aCADvP98",
             },
         ],
         conditionType: E_conditionType["non-pathological"],
@@ -323,9 +323,9 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
         description: "A tooth that has formed but not emerged into the mouth.",
         treatmentVideos: [
             {
-                id: "lIHFdO0Okkw",
+                id: "pWvb3pcSsGg",
                 type: "youtube",
-                link: "https://youtu.be/lIHFdO0Okkw",
+                link: "https://youtu.be/pWvb3pcSsGg",
             },
         ],
         conditionType: E_conditionType["non-pathological"],

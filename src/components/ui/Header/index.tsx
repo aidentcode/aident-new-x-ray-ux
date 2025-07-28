@@ -204,8 +204,8 @@ export default function Header({
                     <PrimaryButton
                         btnTitle="Start scan"
                         onClick={() => {
-                            // handleStartScanTest();
-                            handleStartScan();
+                            handleStartScanTest();
+                            //handleStartScan();
                         }}
                         disabled={false}
                     />

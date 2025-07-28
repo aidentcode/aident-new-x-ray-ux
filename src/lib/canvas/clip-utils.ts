@@ -35,7 +35,7 @@ export const createSelectClip = (
         clippedImageSrc: "",
         clippedImageSrc2: "",
     };
-    const groupCanvas = group.toCanvasElement({ width: 300 });
+    const groupCanvas = group.toCanvasElement({ width });
     const clip = (clippedImage: FabricImage) => {
         const canvasAR = canvas.width / canvas.height;
         const bgImgAR = bgImgObj.width / bgImgObj.height;

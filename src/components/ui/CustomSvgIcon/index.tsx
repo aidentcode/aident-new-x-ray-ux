@@ -5,6 +5,7 @@ import clsx from "clsx";
 import CustomTooltip from "../CustomToolTip";
 import { IconButton } from "@mui/material";
 import { Close } from "@mui/icons-material";
+import DownloadIcon from "@mui/icons-material/Download";
 
 type CustomSvgIconProps = SvgIconProps & {
     iconId: string;
@@ -43,6 +44,24 @@ export default function CustomSvgIcon(props: CustomSvgIconProps) {
             );
             break;
         }
+        case "download": {
+            customIcon = (
+                <IconButton
+                    className={clsx([
+                        styles["download-button"],
+                        props.className,
+                    ])}
+                    disableRipple
+                    size="small"
+                    id="basic-button"
+                    onClick={onClickCallback}
+                >
+                    <DownloadIcon className={clsx([styles["download-icon"]])} />
+                </IconButton>
+            );
+            break;
+        }
+
         case "youtube": {
             customIcon = (
                 <div

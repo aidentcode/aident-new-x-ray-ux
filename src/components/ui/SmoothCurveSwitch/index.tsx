@@ -106,7 +106,7 @@ export default function SmoothCurveSwitch({
                         sx={{ alignItems: "center" }}
                     >
                         <AntSwitch
-                            defaultChecked
+                            defaultChecked={false}
                             inputProps={{ "aria-label": "ant design" }}
                             onChange={() => {
                                 conditions.forEach((condition) => {

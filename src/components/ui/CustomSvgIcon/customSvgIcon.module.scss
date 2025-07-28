@@ -86,6 +86,15 @@
     }
 }
 
+.download-button {
+    color: var(--text-color-2) !important;
+}
+.download-button:hover {
+    .download-icon {
+        color: var(--logo-color);
+    }
+}
+
 /*
 320px — 480px: Mobile devices
 481px — 768px: iPads, Tablets

@@ -45,9 +45,9 @@ export const classDataOPG: Record<string, T_xrayClassData> = {
             "A tooth abscess is a pocket of pus that's caused by a bacterial infection. A periapical tooth abscess usually occurs as a result of an untreated dental cavity or secondary infection.",
         treatmentVideos: [
             {
-                id: "SGw0DiBv2pk",
+                id: "bVaiaAZ3H7M",
                 type: "youtube",
-                link: "https://youtu.be/SGw0DiBv2pk",
+                link: "https://youtu.be/bVaiaAZ3H7M",
             },
         ],
         conditionType: E_conditionType.pathological,
@@ -92,9 +92,9 @@ export const classDataOPG: Record<string, T_xrayClassData> = {
             "Braces are orthodontic device that straighten crooked and misaligned teeth but also to realign their jaw.",
         treatmentVideos: [
             {
-                id: "RU-YnYTd1qk",
+                id: "_6xXqn_y5H0",
                 type: "youtube",
-                link: "https://youtu.be/RU-YnYTd1qk",
+                link: "https://youtu.be/_6xXqn_y5H0",
             },
         ],
         conditionType: E_conditionType["non-pathological"],
@@ -184,9 +184,9 @@ export const classDataOPG: Record<string, T_xrayClassData> = {
             "A filling is used to treat a small hole in a tooth.To repair a cavity,a dentist removes the decayed tooth tissue and then fills the space with a filling material.",
         treatmentVideos: [
             {
-                id: "HffVUqfOCsU",
+                id: "fm208EgQUoU",
                 type: "youtube",
-                link: "https://youtu.be/HffVUqfOCsU",
+                link: "https://youtu.be/fm208EgQUoU?si=HD2y7PSCeicITz8O",
             },
         ],
         conditionType: E_conditionType["non-pathological"],
@@ -247,9 +247,9 @@ export const classDataOPG: Record<string, T_xrayClassData> = {
             "Dental implant is a procedure that replaces tooth roots with metal,screwlike posts and replaces damaged or missing teeth with artificial teeth that look and function much like real one.",
         treatmentVideos: [
             {
-                id: "gMycqoQrlBs",
+                id: "iWDTii1MWfs",
                 type: "youtube",
-                link: "https://youtu.be/gMycqoQrlBs",
+                link: "https://youtu.be/iWDTii1MWfs",
             },
         ],
         conditionType: E_conditionType["non-pathological"],
@@ -294,9 +294,9 @@ export const classDataOPG: Record<string, T_xrayClassData> = {
             "It is done to treat the infected pulp to eliminate the infection and protect the tooth from future microbial invasion.",
         treatmentVideos: [
             {
-                id: "AATnG9BdIMg",
+                id: "JxLhrpjF8mg",
                 type: "youtube",
-                link: "https://youtu.be/AATnG9BdIMg",
+                link: "https://youtu.be/JxLhrpjF8mg",
             },
         ],
         conditionType: E_conditionType["non-pathological"],

@@ -100,7 +100,7 @@ const defaultValue: T_xrayContext = {
     setTooth3dView: () => {},
     toothMaterial: "wireframe",
     setToothMaterial: () => {},
-    smoothCurves: true,
+    smoothCurves: false,
     setSmoothCurves: () => {},
 };
 const XrayContext = createContext(defaultValue);
