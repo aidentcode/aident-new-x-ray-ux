@@ -27,7 +27,7 @@ import { getTeethModelData } from "@/lib/data/teethModelData";
 import { E_colorCode, E_tooth3dId, E_tooth3dPosition } from "@/lib/enums";
 import WaitMsg from "@/components/ui/WaitMsg";
 import { T_condition, T_point2D } from "@/lib/types/types";
-import { getColorFromCodeCode } from "@/lib/data/colorData";
+import { getColorFromCode } from "@/lib/data/colorData";
 
 export const CAM_HEIGHT = 6,
     ORTHOCAM_DEFAULT_ZOOM = 20.96298075970983;
@@ -190,7 +190,7 @@ function createConditionShape(condition: T_condition, centerPosition: Vector3) {
 
         const material = new MeshPhongMaterial({
             //color: 0xff0000, // Red color
-            color: getColorFromCodeCode(colorCode, "0x"),
+            color: getColorFromCode(colorCode, "0x"),
             transparent: true,
             opacity: 0.7,
             side: 1,

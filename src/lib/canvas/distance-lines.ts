@@ -7,7 +7,7 @@ import {
 } from "../types/types";
 import { createSelectClip } from "./clip-utils";
 import { E_opgClassId, E_rvgClassId } from "../enums";
-import { getColorFromCodeCode, hexToRgba } from "../data/colorData";
+import { getColorFromCode, hexToRgba } from "../data/colorData";
 import { hexToRgb } from "@mui/material";
 
 export const addDistanceLinesAsync = (
@@ -32,7 +32,7 @@ export const addDistanceLinesAsync = (
         let count = 0;
         distances.forEach((distanceData, index) => {
             const classId = class_ids[index];
-            const color = getColorFromCodeCode(
+            const color = getColorFromCode(
                 classData[classId].colorCode
             ) as string;
             if (distanceData && distanceData.length) {
@@ -92,9 +92,7 @@ export const addDistanceLines = (
     let count = 0;
     distances.forEach((distanceData, index) => {
         const classId = class_ids[index];
-        const color = getColorFromCodeCode(
-            classData[classId].colorCode
-        ) as string;
+        const color = getColorFromCode(classData[classId].colorCode) as string;
         if (distanceData && distanceData.length) {
             addDistanceLine(
                 canvas,

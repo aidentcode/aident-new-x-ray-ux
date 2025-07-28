@@ -2,7 +2,7 @@ import { HSLColor, RGBColor } from "react-color";
 import { E_colorCode } from "../enums";
 import { clamp } from "../utils";
 
-export const getColorFromCodeCode = (
+export const getColorFromCode = (
     colorCode: E_colorCode,
     format: "#" | "0x" = "#"
 ) => {
