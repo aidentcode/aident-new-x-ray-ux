@@ -116,7 +116,7 @@ export default function XrayCanvas() {
 
         initEditor(editor);
         initCanvasBehavior(updateData);
-        console.log("initialise editor");
+        // console.log("initialise editor");
 
         FabricImage.fromURL(base64ImgFromFile, {
             crossOrigin: "anonymous",

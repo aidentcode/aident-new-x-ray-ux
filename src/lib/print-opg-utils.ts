@@ -168,7 +168,7 @@ export function printOPGImage(
     html += `</tbody></table>`;
     html += opgPrint5();
     html += `<button class="print-button" onclick="window.print()">Print</button>`;
-    const footer = `${origin}/footer.svg`;
+    const footer = `${origin}/footer2.svg`;
     html += `<div><img  class="footer" src="${footer}" alt="footer" width="100%" style="width:100%;"></div>`;
 
     // click on download button

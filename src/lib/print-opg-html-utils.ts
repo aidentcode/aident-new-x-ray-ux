@@ -1,7 +1,5 @@
-//import header from "../assets/header.svg";
-
 export const getPrintOPGReportHtml = (origin: string) => {
-    const header = `${origin}/header.svg`;
+    const header = `${origin}/header2.svg`;
     return `
           <html>
             

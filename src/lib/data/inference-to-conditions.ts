@@ -34,11 +34,11 @@ export const inferenceToConditions = (
             measurement,
             parentOverlayName,
         } = overlay;
-        console.log("overlay.name=", name, name.split("-"));
-        console.log("classId=", classId);
-        console.log("index=", index);
+        // console.log("overlay.name=", name, name.split("-"));
+        // console.log("classId=", classId);
+        // console.log("index=", index);
         const classIndex = parseInt(name.split("-")[2]);
-        console.log("classIndex=", classIndex);
+        // console.log("classIndex=", classIndex);
 
         let label = classData[classId].label || "";
         if (name.split("-")[0] === "lineSegment") {
@@ -63,14 +63,14 @@ export const inferenceToConditions = (
                 ? distances[classIndex]
                 : undefined;
         if (distanceData) {
-            console.log("classIndex=", classIndex);
-            console.log("distanceData=", distanceData);
-            console.log(
-                "distanceData2=",
-                distanceData ? distanceData[1] : undefined
-            );
-            console.log("distances=", distances);
-            console.log("criticalDistance=", criticalDistance);
+            // console.log("classIndex=", classIndex);
+            // console.log("distanceData=", distanceData);
+            // console.log(
+            //     "distanceData2=",
+            //     distanceData ? distanceData[1] : undefined
+            // );
+            // console.log("distances=", distances);
+            // console.log("criticalDistance=", criticalDistance);
 
             criticalDistance = computeCriticalDistance(
                 classId,
@@ -114,7 +114,7 @@ const computeCriticalDistance = (
         return "";
     }
     //Currently only caries has critical distance
-    console.log("classId=", classId);
+    // console.log("classId=", classId);
     if (![E_opgClassId.caries, E_rvgClassId.caries].includes(classId)) {
         return "";
     }

@@ -10,7 +10,6 @@ import { T_shapeUpdateData } from "@/lib/types/types";
 import { E_xrayType } from "@/lib/enums";
 import { printRVGImage } from "@/lib/print-rvg-utils";
 import { printOPGImage } from "@/lib/print-opg-utils";
-//import footer from "../../../../public/footer.svg";
 
 export default function GenerateReportButton({
     updateData,
@@ -21,14 +20,7 @@ export default function GenerateReportButton({
 }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const xrayContext = useContext(XrayContext);
-    const {
-        smoothCurves,
-        setSmoothCurves,
-        imageSetup,
-        conditions,
-        setConditions,
-        xrayType,
-    } = xrayContext;
+    const { xrayType } = xrayContext;
 
     const startReport = () => {
         if (!updateData) {
@@ -39,7 +31,7 @@ export default function GenerateReportButton({
             // Also print image
             const img = new Image();
             img.onload = function () {
-                console.log("img onload=", img);
+                // console.log("img onload=", img);
                 if (xrayType === E_xrayType.rvg) {
                     printRVGImage(img, xrayContext);
                 } else {
@@ -92,7 +84,7 @@ export default function GenerateReportButton({
                         <div
                             className={clsx([
                                 styles.switchText,
-                                !!smoothCurves && styles.disabledText,
+                                disabled && styles.disabledText,
                             ])}
                         >
                             Generate Report
