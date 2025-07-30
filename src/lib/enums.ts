@@ -66,6 +66,9 @@ export enum E_colorCode {
     "gray" = "gray",
     "maroon" = "maroon",
     "magenta" = "magenta",
+    "lavender" = "lavender",
+    "metalGray" = "metalGray",
+    "aqua" = "aqua",
 }
 export enum E_fabricMouseClickCode {
     "LEFT_CLICK" = 1,

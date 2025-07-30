@@ -28,6 +28,9 @@ export const getColorFromCode = (
         [E_colorCode.maroon]: "#a31545",
         [E_colorCode.magenta]: "#ff00ff",
         [E_colorCode.gray]: "#5d5d5d",
+        [E_colorCode.lavender]: "#e6e6fa",
+        [E_colorCode.metalGray]: "#6e7b8b",
+        [E_colorCode.aqua]: "#00ffff",
     };
 
     const colorHash2: Record<E_colorCode, number> = {
@@ -52,6 +55,9 @@ export const getColorFromCode = (
         [E_colorCode.maroon]: 0xa31545,
         [E_colorCode.magenta]: 0xff00ff,
         [E_colorCode.gray]: 0x5d5d5d,
+        [E_colorCode.lavender]: 0xe6e6fa,
+        [E_colorCode.metalGray]: 0x6e7b8b,
+        [E_colorCode.aqua]: 0x00ffff,
     };
 
     if (format === "0x") {

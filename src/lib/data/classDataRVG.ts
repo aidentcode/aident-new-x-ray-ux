@@ -99,7 +99,8 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
     [E_rvgClassId.calculus]: {
         classId: E_rvgClassId.calculus,
         label: "Calculus",
-        colorCode: E_colorCode.darkGreen,
+        colorCode: E_colorCode.orange,
+        textColorCode: E_colorCode.black,
         description:
             "When plaque collects on teeth it hardens into calculus,on your teeth which can lead to serious gum disease, bad breath and bleeding gums.",
         treatmentVideos: [
@@ -177,7 +178,8 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
     [E_rvgClassId.fractureLine]: {
         classId: E_rvgClassId.fractureLine,
         label: "Fracture line",
-        colorCode: E_colorCode.brown,
+        colorCode: E_colorCode.lavender,
+        textColorCode: E_colorCode.black,
         description:
             "While chewing on hard foods,a tooth can fracture or crack. It is commonly seen in people who grind their teeth at night,play contact sports,or it can occur spontaneously in older adults.",
         treatmentVideos: [
@@ -209,8 +211,7 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
     [E_rvgClassId.impacted]: {
         classId: E_rvgClassId.impacted,
         label: "Impacted",
-        colorCode: E_colorCode.orange,
-        textColorCode: E_colorCode.black,
+        colorCode: E_colorCode.darkGreen,
         description:
             "Impacted teeth are mostly in relation to wisdom teeth. Impacted wisdom teeth can result in pain,damage to other teeth, cyst, decay, etc",
         treatmentVideos: [
@@ -225,8 +226,7 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
     [E_rvgClassId.implant]: {
         classId: E_rvgClassId.implant,
         label: "Implant",
-        colorCode: E_colorCode.yellow,
-        textColorCode: E_colorCode.black,
+        colorCode: E_colorCode.metalGray,
         description:
             "Dental implant is a procedure that replaces tooth roots with metal,screwlike posts and replaces damaged or missing teeth with artificial teeth that look and function much like real one.",
         treatmentVideos: [
@@ -272,7 +272,7 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
     [E_rvgClassId.rootCanal]: {
         classId: E_rvgClassId.rootCanal,
         label: "Root canal treatment",
-        colorCode: E_colorCode.lemon,
+        colorCode: E_colorCode.yellow,
         textColorCode: E_colorCode.black,
         description:
             "It is done to treat the infected pulp to eliminate the infection and protect the tooth from future microbial invasion.",
@@ -303,7 +303,8 @@ export const classDataRVG: Record<string, T_xrayClassData> = {
     [E_rvgClassId.sinus]: {
         classId: E_rvgClassId.sinus,
         label: "Sinus",
-        colorCode: E_colorCode.darkGreen,
+        colorCode: E_colorCode.aqua,
+        textColorCode: E_colorCode.black,
         description:
             "A cavity within a bone or other tissue, especially one in the bones of the face connecting the nasal cavity",
         conditionType: E_conditionType["pathological"],

@@ -54,6 +54,9 @@
     --color-indicator-lemon: #a2c861;
     --color-indicator-maroon: #a31545;
     --color-indicator-magenta: #0c070c;
+    --color-indicator-lavender: #e6e6fa;
+    --color-indicator-metalGray: #6e7b8b;
+    --color-indicator-aqua: #00ffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -159,6 +162,15 @@ a {
 }
 .magenta {
     background-color: var(--color-indicator-magenta);
+}
+.lavender {
+    background-color: var(--color-indicator-lavender);
+}
+.metalGray {
+    background-color: var(--color-indicator-metalGray);
+}
+.aqua {
+    background-color: var(--color-indicator-aqua);
 }
 
 .custom-drag-handle {
