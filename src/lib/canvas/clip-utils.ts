@@ -86,7 +86,18 @@ export const createSelectClip = (
             multiplier: 1,
         });
         clipResult.clippedImageSrc = clippedCanvas.toDataURL();
-        clipResult.clippedImageSrc2 = groupCanvas.toDataURL();
+
+        const group2 = new Group([clippedImage, group]);
+        const groupCanvas2 = group2.toCanvasElement({
+            left: clipLeft + canvas.width * 0.5 - offsetLeft,
+            top: clipTop + canvas.height * 0.5 - offsetTop,
+            width: clipWidth,
+            height: clipHeight,
+            enableRetinaScaling: true,
+            multiplier: 1,
+        });
+        clipResult.clippedImageSrc2 = groupCanvas2.toDataURL();
+        //clipResult.clippedImageSrc2 = groupCanvas.toDataURL();
     };
     bgImgObj.clone().then((clonedObj: FabricImage) => {
         clip(clonedObj);

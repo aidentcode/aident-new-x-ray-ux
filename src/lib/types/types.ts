@@ -65,6 +65,7 @@ export type T_inferenceResponse = {
     result: {
         bbox: Array<T_boundingBox>;
         class_ids: Array<number>;
+        missing_teeth?: Array<number>;
         masks: Array<Array<T_point2D>>;
         distances: Array<T_distanceData | null>;
         areas: Array<number>;

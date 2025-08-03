@@ -17,6 +17,7 @@ import ConfirmLogout from "@/components/modals/ConfirmLogout";
 import ConfirmClearXray from "@/components/modals/ConfirmClearXray";
 import XrayContext from "@/contexts/xrayContext";
 import {
+    sampleInteferenceResponseOPG_test1,
     sampleInteferenceResponseRVG_test1,
     sampleInteferenceResponseRVG_test4,
 } from "@/lib/data/sample-responses";
@@ -164,7 +165,8 @@ export default function Header({
             setWaitMsg("");
             setConditions([]);
             setInferenceResponse({
-                ...sampleInteferenceResponseRVG_test4,
+                //...sampleInteferenceResponseRVG_test4,
+                ...sampleInteferenceResponseOPG_test1,
             });
         }, 1000);
     };
