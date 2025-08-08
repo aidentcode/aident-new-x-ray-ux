@@ -40,7 +40,8 @@ export default function Home() {
                         <div className={styles.infoImage}>
                             <LoadingAnimation3d
                                 zoom={0.5}
-                                cameraPosition={[3, 3, 3]}
+                                cameraPosition={[4, 4, 4]}
+                                showText={false}
                             />
                         </div>
                         <div className={styles.infoTitle2}>

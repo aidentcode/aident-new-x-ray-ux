@@ -1,12 +1,19 @@
 "use client";
 
 import styles from "./loadingAnimation3d.module.scss";
-import { useRef, useState, useEffect, Ref } from "react";
+import { useRef, useState, useEffect, Ref, useMemo } from "react";
 import DirectionalLights from "../DirectionalLights.tsx";
 
 import { Canvas, ObjectMap, useFrame, useLoader } from "@react-three/fiber";
-import { ArcballControls, PerspectiveCamera } from "@react-three/drei";
-import { Euler, Group, Mesh, Vector3 } from "three";
+import { ArcballControls, PerspectiveCamera, Text } from "@react-three/drei";
+import {
+    CatmullRomCurve3,
+    Euler,
+    Group,
+    Mesh,
+    Quaternion,
+    Vector3,
+} from "three";
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { getTeethModelData } from "@/lib/data/teethModelData";
 import { E_tooth3dId, E_tooth3dPosition } from "@/lib/enums";
@@ -30,12 +37,14 @@ export const getDefaultCameraZoom = (): number => {
 export default function LoadingAnimation3d({
     zoom = 1,
     cameraPosition = getDefaultCameraPosition(),
+    showText = false,
 }: {
     zoom?: number;
     cameraPosition?: [number, number, number];
+    showText?: boolean;
 }) {
     const cameraSettings = {
-        fov: 60,
+        fov: 45,
         position: cameraPosition || getDefaultCameraPosition(),
         zoom: zoom || getDefaultCameraZoom(),
     };
@@ -74,7 +83,17 @@ export default function LoadingAnimation3d({
                 />
                 <DirectionalLights />
                 {/* <MeshComponent onProgress={onProgress} /> */}
-                <MeshComponentAnimated onProgress={onProgress} />
+                <MeshComponentAnimated
+                    onProgress={onProgress}
+                    showText={showText}
+                />
+                {showText && (
+                    <TextOnCurve
+                        text={"AiDent™"}
+                        fontSize={0.8}
+                        curvePoints={[]}
+                    />
+                )}
                 {/* {process.env.NODE_ENV === "development" && (
                     <Stats className={styles["stat-container"]} />
                 )} */}
@@ -184,11 +203,70 @@ function MeshComponent({
     );
 }
 
+function TextOnCurve({
+    text,
+    fontSize = 1,
+    curvePoints,
+}: {
+    text: string;
+    fontSize?: number;
+    curvePoints: Vector3[];
+}) {
+    // Position text at the foot of the tooth, facing the camera
+    const textPosition = new Vector3(0, -2, 0); // Position at foot of tooth
+
+    // Create a single text element facing the camera
+    const letters = [
+        {
+            char: text,
+            position: textPosition,
+            rotation: new Quaternion(), // No rotation - faces camera by default
+        },
+    ];
+    const textRef = useRef<Text>(null!);
+    useFrame(() => {
+        const t = performance.now() / 1000; // Define t as time in seconds
+        const f = 0.125; // Define frequency, assuming a value for demonstration
+
+        const sineOpacity = Math.sin(2 * Math.PI * f * t);
+        const cosineOpacity = Math.cos(2 * Math.PI * f * t);
+        // Swing the group based on opacity
+        if (textRef.current) {
+            (textRef.current as any).material.opacity = sineOpacity;
+        }
+    });
+
+    return (
+        <group
+            rotation={new Euler(-0.6, 0.7, 0.4)}
+            position={new Vector3(0, -3, 0)}
+        >
+            {letters.map(({ char, position, rotation }, i) => (
+                <Text
+                    key={i}
+                    //position={[position.x, position.y, position.z]}
+                    fontSize={fontSize}
+                    anchorX="center"
+                    anchorY="middle"
+                    color="#e4bf6a"
+                    outlineWidth={0}
+                    outlineColor="black"
+                    ref={textRef}
+                >
+                    {char}
+                </Text>
+            ))}
+        </group>
+    );
+}
+
 function MeshComponentAnimated({
     toothPosition = E_tooth3dPosition["bottom-left"],
+    showText = false,
     onProgress,
 }: {
     toothPosition?: E_tooth3dPosition;
+    showText?: boolean;
     onProgress: (loaded: number, total: number) => void;
 }) {
     // const toothPosition = E_tooth3dPosition["bottom-left"];
@@ -295,6 +373,7 @@ function MeshComponentAnimated({
                 ref={meshRef}
                 position={positionVector}
                 rotation={rotationEuler}
+                scale={showText ? 0.8 : 1}
             >
                 <primitive object={wireframeGltf.scene} />
                 <primitive object={solidGltf.scene} />
@@ -325,7 +404,6 @@ function setScale(gltf: GLTF & ObjectMap, scale: number) {
         }
     });
 }
-
 function makeMaterialSolid(gltf: GLTF & ObjectMap) {
     // Make all materials solid
     gltf.scene.traverse((child) => {

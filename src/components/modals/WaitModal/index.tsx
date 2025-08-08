@@ -33,6 +33,7 @@ function WaitModal({
                             <LoadingAnimation3d
                                 zoom={0.5}
                                 cameraPosition={[3, 3, 3]}
+                                showText={true}
                             />
                             <CircularProgress
                                 color="primary"
@@ -52,7 +53,9 @@ function WaitModal({
                                 size={36}
                                 sx={{ marginBottom: "16px" }}
                             /> */}
-                            <WaitMsg msg={msg} showSpinner={false} />
+                            <div style={{ marginTop: "16px" }}>
+                                <WaitMsg msg={msg} showSpinner={false} />
+                            </div>
                         </>
                     )}
                     {!show3d && <WaitMsg msg={msg} showSpinner={showSpinner} />}

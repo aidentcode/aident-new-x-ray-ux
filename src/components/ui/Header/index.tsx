@@ -165,8 +165,8 @@ export default function Header({
             setWaitMsg("");
             setConditions([]);
             setInferenceResponse({
-                //...sampleInteferenceResponseRVG_test4,
-                ...sampleInteferenceResponseOPG_test1,
+                ...sampleInteferenceResponseRVG_test4,
+                //...sampleInteferenceResponseOPG_test1,
             });
         }, 1000);
     };
@@ -206,8 +206,8 @@ export default function Header({
                     <PrimaryButton
                         btnTitle="Start scan"
                         onClick={() => {
-                            //handleStartScanTest();
-                            handleStartScan();
+                            handleStartScanTest();
+                            //handleStartScan();
                         }}
                         disabled={false}
                     />
