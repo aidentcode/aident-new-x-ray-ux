@@ -150,8 +150,8 @@ export enum E_conditionMetricId {
 
 export enum E_tooth3dId {
     "select-tooth" = "select-tooth",
-    "tooth-incisor-2" = "tooth-incisor-2",
     "tooth-incisor-1" = "tooth-incisor-1",
+    "tooth-incisor-2" = "tooth-incisor-2",
     "tooth-canine-1" = "tooth-canine-1",
     "tooth-premolar-2" = "tooth-premolar-2",
     "tooth-premolar-1" = "tooth-premolar-1",

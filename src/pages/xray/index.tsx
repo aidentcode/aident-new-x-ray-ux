@@ -105,19 +105,22 @@ function ConditionList({
                         if (isHidden || !number) return <></>;
 
                         return (
-                            <CustomTooltip
-                                title={`${label}: ${number}`}
-                                key={`${item.classId}@${index}`}
-                                placement="left"
-                            >
-                                <div className={styles.collapsedOverviewItem}>
-                                    <ColorIndicator
-                                        colorCode={colorCode}
-                                        displayType={"number"}
-                                        number={number}
-                                    />
-                                </div>
-                            </CustomTooltip>
+                            <div key={`${item.classId}@${index}`}>
+                                <CustomTooltip
+                                    title={`${label}: ${number}`}
+                                    placement="left"
+                                >
+                                    <div
+                                        className={styles.collapsedOverviewItem}
+                                    >
+                                        <ColorIndicator
+                                            colorCode={colorCode}
+                                            displayType={"number"}
+                                            number={number}
+                                        />
+                                    </div>
+                                </CustomTooltip>
+                            </div>
                         );
                     })}
                 </div>

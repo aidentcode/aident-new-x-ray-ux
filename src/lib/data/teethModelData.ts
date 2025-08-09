@@ -2,17 +2,19 @@ import { E_tooth3dId } from "../enums";
 import { T_toothModelData } from "../types/types";
 
 export const getTeethModelData = (toothId: E_tooth3dId): T_toothModelData => {
+    // console.log("getTeethModelData=", toothId);
+
     const toothModelData: Record<E_tooth3dId, T_toothModelData> = {
-        [E_tooth3dId["tooth-incisor-1"]]: {
-            toothId: E_tooth3dId["tooth-incisor-1"],
+        [E_tooth3dId["tooth-incisor-2"]]: {
+            toothId: E_tooth3dId["tooth-incisor-2"],
             fileUrl:
                 "/assets3d/gltf/Upper_Central_Incisor_gltf/Human Teeth Upper Central Incisor.gltf",
             fileUrl2:
                 "/assets3d/gltf/Upper_Central_Incisor_gltf-2/Human Teeth Upper Central Incisor.gltf",
             label: "Central Incisor",
         },
-        [E_tooth3dId["tooth-incisor-2"]]: {
-            toothId: E_tooth3dId["tooth-incisor-2"],
+        [E_tooth3dId["tooth-incisor-1"]]: {
+            toothId: E_tooth3dId["tooth-incisor-1"],
             fileUrl:
                 "/assets3d/gltf/Upper_Lateral_Incisor_gltf/Human Teeth Upper Lateral Incisor.gltf",
             fileUrl2:
@@ -74,6 +76,7 @@ export const getTeethModelData = (toothId: E_tooth3dId): T_toothModelData => {
             label: "Select Tooth",
         },
     };
+    //console.log("toothModelData=", toothModelData[toothId]);
 
     return toothModelData[toothId];
 };

@@ -106,7 +106,7 @@ export const drawOverlaysAsync = async (
         }
         index++;
     }
-    // console.log("toothOverlayData=", toothOverlayData);
+    //console.log("toothOverlayData=", toothOverlayData);
 
     //---- Condition overlays---------
     index = 0;
@@ -150,9 +150,9 @@ export const drawOverlaysAsync = async (
         //     onComplete([...overlayData, ...distanceOverlays]);
         // }
     );
-    // console.log("conditionOverlayData=", conditionOverlayData);
-    onComplete([...overlayData, ...distanceOverlays]);
-    //return [...overlayData, ...distanceOverlays];
+    const overlays = [...overlayData, ...distanceOverlays];
+    //console.log("overlays=", overlays);
+    onComplete(overlays);
 };
 
 type T_addOverlayData = {
@@ -280,13 +280,13 @@ export const addOverlay = (
         lockUniScaling: isEditable ? false : true,
         // visible: checkDefaultVisibility(xrayType, classId),
         perPixelTargetFind: true,
-        opacity: checkDefaultVisibility(xrayType, classId) ? 1 : 0.01,
+        opacity: checkDefaultVisibility(xrayType, classId) ? 1 : 0.001,
     });
 
     group.off();
     group.on("selected", (e) => {
-        console.log("selected", e);
-        console.log("groupName", groupName);
+        // console.log("selected", e);
+        // console.log("groupName", groupName);
         setSelectedConditionId(groupName);
         setTabId("list");
         canvas.requestRenderAll();
@@ -446,7 +446,6 @@ export const addOverlayAsync = async (
                 groupItems.push(mask);
                 maskPaperPath = maskData.paperPath;
             }
-            //groupItems.push(polygon);
         }
         let classText: FabricObject | null = null;
         if (classLabel) {
@@ -506,6 +505,7 @@ export const addOverlayAsync = async (
             const target = e.target as Group;
             if (!target) return;
             const name = target.get("name");
+            // console.log("name=", name);
             const { classId } = decodeName(name);
             const classDataItem = classData[classId];
             const color = getColorFromCode(classDataItem.colorCode) as string;
@@ -580,26 +580,26 @@ export const addOverlayAsync = async (
             overlayResult.parentOverlayName =
                 overlayParentCheck.maxOverlapToothOverlay?.name;
         }
-        createSelectClip(
-            canvas,
-            {
-                group,
-                bgImgObj,
-                left: x1,
-                top: y1,
-                width,
-                height,
-                paddingPct: 20,
-                minWidth: 100,
-                minHeight: 100,
-            },
-            (clipResult) => {
-                resolve({ ...overlayResult, ...clipResult });
-                // if (onAdd) {
-                //     onAdd({ ...rectangleResult, ...clipResult });
-                // }
-            }
-        );
+
+        group.clone().then((groupClone) => {
+            createSelectClip(
+                canvas,
+                {
+                    group: groupClone, //So that original group is not modified
+                    bgImgObj,
+                    left: x1,
+                    top: y1,
+                    width,
+                    height,
+                    paddingPct: 20,
+                    minWidth: 100,
+                    minHeight: 100,
+                },
+                (clipResult) => {
+                    resolve({ ...overlayResult, ...clipResult });
+                }
+            );
+        });
     });
 };
 

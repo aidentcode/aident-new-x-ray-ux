@@ -87,6 +87,7 @@ export const createSelectClip = (
         });
         clipResult.clippedImageSrc = clippedCanvas.toDataURL();
 
+        // const groupClone = await group.clone();
         const group2 = new Group([clippedImage, group]);
         const groupCanvas2 = group2.toCanvasElement({
             left: clipLeft + canvas.width * 0.5 - offsetLeft,
@@ -97,7 +98,7 @@ export const createSelectClip = (
             multiplier: 1,
         });
         clipResult.clippedImageSrc2 = groupCanvas2.toDataURL();
-        //clipResult.clippedImageSrc2 = groupCanvas.toDataURL();
+        // clipResult.clippedImageSrc2 = groupCanvas.toDataURL();
     };
     bgImgObj.clone().then((clonedObj: FabricImage) => {
         clip(clonedObj);

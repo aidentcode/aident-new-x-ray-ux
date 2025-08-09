@@ -30,6 +30,8 @@ export default function OverviewItem({
         (x) => x.status !== E_conditionStatus.rejected
     ).length;
 
+    const videos = items[0]?.treatmentVideos;
+
     const handleRejectAll = () => {
         // rejectOverview(
         //     item.classId as E_rvgClassId | E_opgClassId,
@@ -85,6 +87,14 @@ export default function OverviewItem({
                         number={number}
                     />
                 )}
+                {!!hideNumber && videos?.length && (
+                    <ColorIndicator
+                        colorCode={colorCode}
+                        displayType={"video"}
+                        videos={videos}
+                    />
+                )}
+
                 {!hideDeleteIcon && (
                     <>
                         <div className={styles["vertical-divider"]} />

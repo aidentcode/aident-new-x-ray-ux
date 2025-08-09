@@ -31,8 +31,8 @@ export default function ToothToolbox() {
     const { classId } = decodeName(selectedConditionId || "");
     const classData = xrayType === E_xrayType.rvg ? classDataRVG : classDataOPG;
     const classDataItem = classData[classId];
-    console.log("conditions=", conditions);
-    console.log("selectedConditionId=", selectedConditionId);
+    // console.log("conditions=", conditions);
+    // console.log("selectedConditionId=", selectedConditionId);
     // console.log("classId", classId);
 
     const teethList = conditions.filter((x) => x.classId === classId);
@@ -44,7 +44,7 @@ export default function ToothToolbox() {
     const childConditions = conditions.filter(
         (x) => x.parentOverlayName === selectedConditionId
     );
-    console.log("childConditions=", childConditions);
+    // console.log("childConditions=", childConditions);
 
     return (
         <div className={styles.container}>

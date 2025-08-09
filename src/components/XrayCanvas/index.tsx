@@ -151,7 +151,7 @@ export default function XrayCanvas() {
             setIsErrorModalOpen(true);
         } else {
             if (!conditions || !conditions.length) {
-                //console.log("draw overlays");
+                // console.log("draw overlays");
                 drawOverlaysAsync(updateData, (overlayData) => {
                     // console.log("overlayData", overlayData);
                     const conditions = inferenceToConditions(
@@ -166,6 +166,7 @@ export default function XrayCanvas() {
                     });
                 });
             } else {
+                // console.log("update overlays");
                 updateOverlays(updateData);
             }
         }
